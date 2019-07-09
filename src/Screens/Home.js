@@ -3,7 +3,10 @@ import {
     Text,
     StyleSheet,
     View,
-} from 'react-native';
+    ScrollView,
+    } from 'react-native';
+
+import MainMenu from '../Components/Product/MainMenu';
 
 
 export default class Home extends Component {
@@ -17,9 +20,9 @@ export default class Home extends Component {
 
     render(){
         return(
-            <View>
-                <Text>Ini Home</Text>
-            </View>
+            <ScrollView style={styles.container}>
+                <MainMenu/>
+            </ScrollView>
         )
     }
 }
@@ -27,4 +30,7 @@ export default class Home extends Component {
 
 /*======================StyleSheet=======================*/
 const styles = StyleSheet.create({
+    container:{
+        backgroundColor:'#F7F7F7',
+    }
 });
