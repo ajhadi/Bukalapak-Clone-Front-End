@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 
-//Import Navigation
+//Import Navigations
 import {
   createStackNavigator,
   createAppContainer,
@@ -17,35 +17,72 @@ import {
 
 import { Image, StyleSheet } from 'react-native';
 
+//Import Screens
 import HomeScreen from './src/Screens/Home';
-import TransactionScreen from "./src/Screens/Transaction";
+import DiscoverScreen from './src/Screens/Discover';
+import BukaMallScreen from './src/Screens/BukaMall';
+import TransactionScreen from './src/Screens/Transaction';
+import AccountScreen from './src/Screens/Account';
 
+//Import Components
 import TopBar from './src/Components/Navigation/TopBar';
-
 
 const TabNavigator = createBottomTabNavigator(
   {
     Home: {
       screen: HomeScreen,
-      navigationOptions: ({ navigation }) => ({
+      navigationOptions: {
         title: 'Home',
         tabBarIcon: ({ focused }) => (
           focused ?
             <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
             <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
         ),
-      }),
+      },
+    },
+    Discover: {
+      screen: DiscoverScreen,
+      navigationOptions: {
+        title: 'Discover',
+        tabBarIcon: ({ focused }) => (
+          focused ?
+            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+        ),
+      },
+    },
+    BukaMall: {
+      screen: BukaMallScreen,
+      navigationOptions: {
+        title: 'BukaMall',
+        tabBarIcon: ({ focused }) => (
+          focused ?
+            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+        ),
+      },
     },
     Transaction: {
       screen: TransactionScreen,
-      navigationOptions: ({ navigation }) => ({
+      navigationOptions: {
         title: 'Transaction',
         tabBarIcon: ({ focused }) => (
           focused ?
             <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
             <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
         ),
-      }),
+      },
+    },
+    Account: {
+      screen: AccountScreen,
+      navigationOptions: {
+        title: 'Account',
+        tabBarIcon: ({ focused }) => (
+          focused ?
+            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+        ),
+      },
     },
   }
 );
