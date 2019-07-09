@@ -18,6 +18,7 @@ import {
 import { Image, StyleSheet } from 'react-native';
 
 import HomeScreen from './src/Screens/Home';
+import TransactionScreen from "./src/Screens/Transaction";
 
 import TopBar from './src/Components/Navigation/TopBar';
 
@@ -28,6 +29,17 @@ const TabNavigator = createBottomTabNavigator(
       screen: HomeScreen,
       navigationOptions: ({ navigation }) => ({
         title: 'Home',
+        tabBarIcon: ({ focused }) => (
+          focused ?
+            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+        ),
+      }),
+    },
+    Transaction: {
+      screen: TransactionScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: 'Transaction',
         tabBarIcon: ({ focused }) => (
           focused ?
             <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
