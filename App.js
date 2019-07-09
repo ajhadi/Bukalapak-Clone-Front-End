@@ -57,8 +57,8 @@ const StackNavigator = createStackNavigator({
       header: (<TopBar navigation={navigation} screen={'Home'} />),
     })
   },
-  Cart: {
-    screen: HomeScreen,
+  Transaction: {
+    screen: TransactionScreen,
     navigationOptions: ({navigation}) => ({
       header:(null)
     }),
