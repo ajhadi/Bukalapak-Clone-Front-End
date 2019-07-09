@@ -15,7 +15,7 @@ class Main extends Component{
         this.state = { currentScreen : 'Splash' };
         setTimeout(()=>{
             this.setState({currentScreen : 'App'});
-        },500);
+        },3000);
     }
     render(){
         const {currentScreen} = this.state;
