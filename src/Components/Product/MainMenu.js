@@ -5,7 +5,7 @@ import {
     View,
     StyleSheet,
     TouchableOpacity
-    } from 'react-native';
+} from 'react-native';
 
 export default class Menu extends Component{
     constructor(props){

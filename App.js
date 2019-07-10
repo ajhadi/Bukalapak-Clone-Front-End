@@ -26,6 +26,7 @@ import AccountScreen from './src/Screens/Account';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
+import ProductList from './src/Components/Product/ProductList';
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -35,8 +36,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Home',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
         ),
       },
     },
@@ -46,8 +47,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Discover',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
         ),
       },
     },
@@ -57,8 +58,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'BukaMall',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
         ),
       },
     },
@@ -68,8 +69,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Transaction',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
         ),
       },
     },
@@ -79,8 +80,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Account',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
         ),
       },
     },
