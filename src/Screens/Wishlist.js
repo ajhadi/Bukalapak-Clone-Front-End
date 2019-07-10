@@ -47,7 +47,7 @@ class WishlistScreen extends Component {
                     data={this.state.products}
                     keyExtractor={this._keyExtractor}
                     numColumns='2'
-                    renderItem={({item}) => <WishlistProducts data={item}/>}
+                    renderItem={({item}) => <WishlistProducts navigation={this.props.navigation} data={item}/>}
                   />
                 <Modal transparent={true} visible={this.state._ModalVisible} onRequestClose={() => this.changeModalVisibility(false)}>
                     <FilterModal setModalVisibility={this.setModalVisibility} />

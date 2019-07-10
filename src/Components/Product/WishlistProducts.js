@@ -13,13 +13,12 @@ class WishlistProduct extends Component {
         Dimensions.addEventListener('change', (e) => {
             this.setState(e.window);
         });
-
-        
     }
+    
     render() {
         return (
             <View style={{width:this.state.width/2}}>
-                <TouchableOpacity onPress={() => alert('go To product Detail')}>
+                <TouchableOpacity onPress={() => { this.props.navigation.navigate('ProductDetail', this.props.data)}}>
                     <View style={{
                         width:'100%',
                         height:this.state.width*1.1,
