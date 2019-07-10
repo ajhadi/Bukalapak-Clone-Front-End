@@ -29,9 +29,9 @@ export default class Menu extends Component{
                         <Image source={require('../../Assets/Images/ic_voucherku.png')} style={styles.icon}/>
                         <Text style={styles.title}>VoucherKu</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu}>
+                    <TouchableOpacity style={styles.menu} onPress={() => { this.props.navigation.navigate('Wishlist', this.props.data)}}>
                         <Image source={require('../../Assets/Images/ic_voucherku.png')} style={styles.icon}/>
-                        <Text style={styles.title}>VoucherKu</Text>
+                        <Text style={styles.title}>Barang Favorite</Text>
                     </TouchableOpacity>
             </View>
         )

@@ -21,7 +21,7 @@ export default class Home extends Component {
     render(){
         return(
             <ScrollView style={styles.container}>
-                <MainMenu/>
+                <MainMenu navigation={this.props.navigation}/>
             </ScrollView>
         )
     }
