@@ -8,9 +8,11 @@ import {
     StyleSheet,
     FlatList,
     TouchableOpacity,
+    Modal
 } from 'react-native';
 
 import WishlistProducts from '../Components/Product/WishlistProducts';
+import FilterModal from "../Components/Filter";
 import data from '../Assets/DummyData/Products';
 class WishlistScreen extends Component {
     
@@ -19,9 +21,13 @@ class WishlistScreen extends Component {
         this.state = {
             products:data,
             filter:'Semua',
+            _ModalVisible:false,
         };
       }
-
+    
+    setModalVisibility = (bool) => {
+        this.setState({ _ModalVisible: bool});
+    }
     _keyExtractor = (item, index) => item.id;
 
     render() {
@@ -30,7 +36,7 @@ class WishlistScreen extends Component {
                 <View style={styles.search}>
                     <Image source={require('../Assets/Images/Icons/ico_search.png')} style={{opacity:0.5,margin:20,height:20,width:20,}}/>
                     <TextInput placeholder={'Cari barang favorit...'} style={styles.searchInput}/>
-                    <TouchableOpacity style={styles.filterButton}><Text style={{alignSelf:'center'}}>Filter</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.filterButton} onPress={()=> this.setModalVisibility(true)}><Text style={{alignSelf:'center'}}>Filter</Text></TouchableOpacity>
                 </View>
                 <View>
                     <Text style={{margin:5,opacity:0.9}}>Filter : {this.state.filter}</Text>
@@ -43,7 +49,9 @@ class WishlistScreen extends Component {
                     numColumns='2'
                     renderItem={({item}) => <WishlistProducts data={item}/>}
                   />
-
+                <Modal transparent={true} visible={this.state._ModalVisible} onRequestClose={() => this.changeModalVisibility(false)}>
+                    <FilterModal setModalVisibility={this.setModalVisibility} />
+                </Modal>
                 </View>
             </ScrollView>
         );

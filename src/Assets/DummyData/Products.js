@@ -3,7 +3,7 @@ const Products = [
         id: '1',
         name : 'Air Jordan 6 Retro SP',
         price : 'Rp3.109.000',
-        seller : 'Nike',
+        seller : 'Nike Official Store',
         rate : 5.0,
         image_url:'../..'
     },
@@ -11,7 +11,7 @@ const Products = [
         id: '2',
         name : 'Air Jordan 6 Retro SP',
         price : 'Rp3.109.000',
-        seller : 'Nike',
+        seller : 'Nike Official Store',
         rate : 5.0,
         image_url:'../..'
     },
@@ -19,7 +19,7 @@ const Products = [
         id: '3',
         name : 'Air Jordan 6 Retro SP',
         price : 'Rp3.109.000',
-        seller : 'Nike',
+        seller : 'Nike Official Store',
         rate : 5.0,
         image_url:'../..'
     },
@@ -27,7 +27,7 @@ const Products = [
         id: '4',
         name : 'Air Jordan 6 Retro SP',
         price : 'Rp3.109.000',
-        seller : 'Nike',
+        seller : 'Nike Official Store',
         rate : 5.0,
         image_url:'../..'
     },
@@ -35,7 +35,7 @@ const Products = [
         id: '5',
         name : 'Air Jordan 6 Retro SP',
         price : 'Rp3.109.000',
-        seller : 'Nike',
+        seller : 'Nike Official Store',
         rate : 5.0,
         image_url:'../..'
     },
@@ -43,7 +43,7 @@ const Products = [
         id: '6',
         name : 'Air Jordan 6 Retro SP',
         price : 'Rp3.109.000',
-        seller : 'Nike',
+        seller : 'Nike Official Store',
         rate : 5.0,
         image_url:'../..'
     },
@@ -51,7 +51,7 @@ const Products = [
         id: '7',
         name : 'Air Jordan 6 Retro SP',
         price : 'Rp3.109.000',
-        seller : 'Nike',
+        seller : 'Nike Official Store',
         rate : 5.0,
         image_url:'../..'
     },
@@ -59,7 +59,7 @@ const Products = [
         id: '8',
         name : 'Air Jordan 6 Retro SP',
         price : 'Rp3.109.000',
-        seller : 'Nike',
+        seller : 'Nike Official Store',
         rate : 5.0,
         image_url:'../..'
     },];

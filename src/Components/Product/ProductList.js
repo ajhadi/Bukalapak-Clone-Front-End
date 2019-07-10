@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, Image, FlatList } from 'react-native';
+import { View, Text, StyleSheet, Button, Image, FlatList, StatusBar } from 'react-native';
 
 // Dummy untuk testing
 import Dummy from '../../Assets/DummyData/Notes';
@@ -8,6 +8,7 @@ class ProductList extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
                 <FlatList
                     data={Dummy}    // Dummy untuk testing
                     numColumns={2}
