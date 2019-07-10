@@ -22,8 +22,8 @@ import HomeScreen from './src/Screens/Home';
 import DiscoverScreen from './src/Screens/Discover';
 import BukaMallScreen from './src/Screens/BukaMall';
 import TransactionScreen from './src/Screens/Transaction';
-import AccountScreen from './src/Screens/Account';
-import WishlistScreen from './src/Screens/Wishlist';
+//import AccountScreen from './src/Screens/Account';
+import AccountScreen from './src/Screens/AccountPopup';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
