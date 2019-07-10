@@ -100,7 +100,7 @@ const StackNavigator = createStackNavigator({
   Wishlist: {
     screen: WishlistScreen,
     navigationOptions: ({navigation}) => ({
-      header:(null)
+      header:(<TopBar navigation={navigation} screen={'Home'} />)
     }),
   },
 });
