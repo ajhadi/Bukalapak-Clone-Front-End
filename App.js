@@ -22,13 +22,17 @@ import HomeScreen from './src/Screens/Home';
 import DiscoverScreen from './src/Screens/Discover';
 import BukaMallScreen from './src/Screens/BukaMall';
 import TransactionScreen from './src/Screens/Transaction';
-//import AccountScreen from './src/Screens/Account';
-import AccountScreen from './src/Screens/AccountPopup';
+import AccountScreen from './src/Screens/Account';
 import WishlistScreen from './src/Screens/Wishlist';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
-import ProductList from './src/Components/Product/ProductList';
+
+// Pengetesan Component
+// import ProductList from './src/Components/Product/ProductList';
+// import LoginPopup from './src/Screens/LoginPopup';
+// import AccountPopup from './src/Screens/AccountPopup';
+
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -38,8 +42,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Home',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_000.png')} />
         ),
       }),
     },
@@ -49,8 +53,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Discover',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_000.png')} />
         ),
       },
     },
@@ -60,8 +64,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'BukaMall',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_000.png')} />
         ),
       },
     },
@@ -71,8 +75,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Transaction',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_000.png')} />
         ),
       },
     },
@@ -82,8 +86,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Account',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_radio_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_015.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_000.png')} />
         ),
       },
     },

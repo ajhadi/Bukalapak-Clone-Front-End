@@ -1,51 +1,64 @@
 import React, {Component} from 'react';
-import {Text, View, Image} from 'react-native';
+import { 
+    Text, 
+    View, 
+    Image, 
+    TouchableOpacity,
+    StatusBar,
+} from 'react-native';
 
-
-import {PagerTabIndicator, IndicatorViewPager, PagerTitleIndicator, PagerDotIndicator} from "rn-viewpager";
+import {IndicatorViewPager, PagerDotIndicator} from "rn-viewpager";
 
 class AkunScreen extends Component {
     _renderIndicator() {
-        return <PagerDotIndicator pageCount={3}/>
+        return <PagerDotIndicator pageCount={4}/>
     }
 
     render() {
         return (
             <View style={{
                 flex: 1,
+                backgroundColor: '#fff',
             }}>
+                <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
                 <View style={{
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-                    margin: 20,
+                    margin: 18,
                 }}>
-                    <Image
-                        style={{
-                            height:25,
-                            width:25
-                        }}
-                        source={require('../Assets/Icons/ic_action_clear_black.png')}
-                    />
-                    <Text style={{
-                        color: '#000000',
-                        fontSize: 17
-                    }}>Keuntungan Mendaftar</Text>
-                    <Text style={{
-                        color: '#ff0026'
-                    }}>Menu Lain</Text>
+                    <TouchableOpacity style={{ justifyContent: 'center', width: 60 }}>
+                        <Image
+                            style={{
+                                height: 24,
+                                width: 24
+                            }}
+                            source={require('../Assets/Images/Icons/ic_close_black_24dp.png')}
+                        />
+                    </TouchableOpacity>
+                    <View style={{ justifyContent: 'center' }}>
+                        <Text style={{
+                            color: '#000',
+                            fontSize: 17,
+                        }}>Keuntungan Mendaftar</Text>
+                    </View>
+                    <TouchableOpacity style={{ justifyContent: 'center', width: 60 }}>
+                        <Text style={{
+                            color: '#D71149'
+                        }}>Menu Lain</Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={{flex: 1,
                     alignContent:'center',
                     justifyContent:'center',}}>
                     <IndicatorViewPager
                         style={{
-                            height: 250,
+                            height: 300,
                         }}
                         indicator={this._renderIndicator()}>
                         <View style={{
                             alignItems:'center',
-                            padding:20
+                            padding:20,
                         }}>
                             <Image style={{
                                 height:100,
@@ -121,35 +134,43 @@ class AkunScreen extends Component {
                 </View>
                 <View style={{
                     flexDirection: 'row',
+                    height: 80,
+                    alignItems: 'center',
+                    justifyContent: 'center'
                 }}>
-                    <View style={{
-                        backgroundColor: '#979797',
-                        margin: 10,
-                        width: '45%',
+                    <TouchableOpacity style={{
+                        backgroundColor: '#f5f5f5',
+                        borderColor: '#ddd',
+                        borderStyle: 'solid',
+                        borderWidth: 1,
+                        borderRadius: 2,
+                        marginRight: 5,
+                        height: 45,
+                        width: '42%',
                         alignItems: 'center',
-                        paddingTop: 15,
-                        paddingBottom: 15,
+                        justifyContent: 'center',
                     }}>
                         <Text
                             style={{
-                                color: '#fff',
+                                color: '#000',
                                 fontSize: 17
                             }}
                         >Login</Text>
-                    </View>
-                    <View style={{
-                        backgroundColor: '#ff0026',
-                        width: '45%',
-                        margin: 10,
-                        paddingTop: 15,
-                        paddingBottom: 15,
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{
+                        backgroundColor: '#D71149',
+                        borderRadius: 2,
+                        marginLeft: 5,
+                        width: '42%',
+                        height: 45,
                         alignItems: 'center',
+                        justifyContent: 'center',
                     }}>
                         <Text style={{
                             color: '#fff',
                             fontSize: 17
                         }}>Daftar Akun</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
