@@ -24,6 +24,7 @@ import BukaMallScreen from './src/Screens/BukaMall';
 import TransactionScreen from './src/Screens/Transaction';
 import AccountScreen from './src/Screens/Account';
 import WishlistScreen from './src/Screens/Wishlist';
+import ProductDetail from './src/Screens/ProductDetail';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
@@ -103,6 +104,12 @@ const StackNavigator = createStackNavigator({
   },
   Wishlist: {
     screen: WishlistScreen,
+    navigationOptions: ({navigation}) => ({
+      header:(<TopBar navigation={navigation} screen={'Home'} />)
+    }),
+  },
+  ProductDetail: {
+    screen: ProductDetail,
     navigationOptions: ({navigation}) => ({
       header:(null)
     }),
