@@ -1,23 +1,47 @@
-import React, { Component } from 'react';
-import { 
-    Text, 
-    View, 
-    StyleSheet, 
-    Image, 
-    StatusBar, 
-    TouchableOpacity, 
+import React, {Component} from 'react';
+import {
+    Text,
+    View,
+    StyleSheet,
+    Image,
+    StatusBar,
+    TouchableOpacity,
     TextInput,
-    ScrollView } 
-from 'react-native';
+    ScrollView, Alert
+}
+    from 'react-native';
+import {connect} from 'react-redux';
+import {postLogin} from "../Services/Axios/account";
 
 class LoginModal extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
+
+    postLogin(username, password) {
+        this.props.dispatch(postLogin(username, password));
+        if (this.props.account.error) {
+            Alert.alert("", 'Username atau password yang anda masukan salah. silahkan coba lagi', [
+                    {text: 'COBA LAGI', style: 'destructive'},
+                ],
+                {cancelable: false},
+            )
+        } else {
+
+        }
+    };
+
     render() {
         return (
             <View style={styles.container}>
-                <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
+                <StatusBar backgroundColor="#FFF" barStyle="dark-content"/>
                 <View>
                     <TouchableOpacity>
-                        <Image style={styles.headIcon} source={require('../Assets/Images/Icons/ic_back.png')} />
+                        <Image style={styles.headIcon} source={require('../Assets/Images/Icons/ic_back.png')}/>
                     </TouchableOpacity>
                 </View>
                 <ScrollView>
@@ -25,45 +49,52 @@ class LoginModal extends Component {
                         <Text style={styles.title}>Login</Text>
                         <Text style={styles.label}>E-MAIL / USERNAME / NOMOR HANDPHONE</Text>
                         <TextInput
+                            onChangeText={(username) => this.setState({username})}
                             style={styles.input}
                         />
                         <Text style={styles.label}>PASSWORD</Text>
                         <TextInput
+                            onChangeText={(password) => this.setState({password})}
                             style={styles.input}
                         />
-                        <TouchableOpacity style={styles.btnLogin}>
+                        <TouchableOpacity
+                            onPress={() => this.postLogin(this.state.username, this.state.password)}
+                            style={styles.btnLogin}>
                             <Text style={styles.btnTextLogin}>Login</Text>
                         </TouchableOpacity>
                         <View style={styles.lineBar}>
-                            <View style={styles.line} />
-                            <View style={{ width: '40%' }}>
+                            <View style={styles.line}/>
+                            <View style={{width: '40%'}}>
                                 <Text style={styles.textFoot}>atau login dengan</Text>
                             </View>
-                            <View style={styles.line} />
+                            <View style={styles.line}/>
                         </View>
                         <View style={styles.optLoginBar}>
                             <TouchableOpacity style={styles.optLoginBtn}>
-                                <Image style={{ height: 23, width: 23, marginRight: 10, }} source={require('../Assets/Images/Icons/ic_facebook.png')} />
-                                <Text style={{ color: '#000', fontSize: 17 }}>
+                                <Image style={{height: 23, width: 23, marginRight: 10,}}
+                                       source={require('../Assets/Images/Icons/ic_facebook.png')}/>
+                                <Text style={{color: '#000', fontSize: 17}}>
                                     Facebook
-                            </Text>
+                                </Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.optLoginBtn}>
-                                <Image style={{ height: 23, width: 23, marginRight: 10, }} source={require('../Assets/Images/Icons/ic_googleplus.png')} />
-                                <Text style={{ color: '#000', fontSize: 17 }}>
+                                <Image style={{height: 23, width: 23, marginRight: 10,}}
+                                       source={require('../Assets/Images/Icons/ic_googleplus.png')}/>
+                                <Text style={{color: '#000', fontSize: 17}}>
                                     Google
-                            </Text>
+                                </Text>
                             </TouchableOpacity>
                         </View>
-                        <View style={{ marginTop: 12 }}>
-                            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <View style={{marginTop: 12}}>
+                            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                                 <Text style={styles.textFoot}>Belum punya akun?</Text>
                                 <TouchableOpacity>
-                                    <Text style={[styles.textFoot, { color: '#D71149', fontWeight: '500' }]}> Daftar Sekarang</Text>
+                                    <Text style={[styles.textFoot, {color: '#D71149', fontWeight: '500'}]}> Daftar
+                                        Sekarang</Text>
                                 </TouchableOpacity>
                             </View>
                             <TouchableOpacity>
-                                <Text style={[styles.textFoot, { color: '#D71149', marginTop: 8 }]}>Lupa Password?</Text>
+                                <Text style={[styles.textFoot, {color: '#D71149', marginTop: 8}]}>Lupa Password?</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -97,8 +128,8 @@ const styles = StyleSheet.create({
         color: '#151515'
     },
     input: {
-        height: 40, 
-        borderColor: '#ccc', 
+        height: 40,
+        borderColor: '#ccc',
         borderBottomWidth: 1,
         marginBottom: 35,
     },
@@ -141,11 +172,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row',
     },
-    textFoot: { 
-        alignSelf: 'center', 
-        color: '#aaa', 
-        fontSize: 13 
+    textFoot: {
+        alignSelf: 'center',
+        color: '#aaa',
+        fontSize: 13
     }
 });
 
-export default LoginModal;
+const mapsStageToProps = (state) => {
+    return {
+        account: state.account
+    }
+};
+
+export default connect(mapsStageToProps)(LoginModal);

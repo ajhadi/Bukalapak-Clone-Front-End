@@ -1,0 +1,1 @@
+export const SERVER_API = 'http://arioki.online:3000/';
