@@ -31,6 +31,7 @@ import TopBar from './src/Components/Navigation/TopBar';
 
 // Pengetesan Component
 // import ProductList from './src/Components/Product/ProductList';
+ import TransactionTabs from './src/Components/Product/TransactionTabs';
 // import AccountPopup from './src/Screens/AccountPopup';
 // import LoginPopup from './src/Screens/LoginPopup';
 // import RegisterPopup from './src/Screens/RegisterPopup';
@@ -121,7 +122,8 @@ const AppContainer = createAppContainer(StackNavigator);
 export default class App extends Component {
   render(){
     return(
-        <AppContainer />
+        // <AppContainer />
+        <TransactionTabs/>
     )
   }
 }
