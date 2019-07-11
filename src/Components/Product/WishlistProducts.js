@@ -17,7 +17,7 @@ class WishlistProduct extends Component {
     
     render() {
         return (
-            <View style={{width:this.state.width/2}}>
+            <View key={this.state.data.id} style={{width:this.state.width/2}}>
                 <TouchableOpacity onPress={() => { this.props.navigation.navigate('ProductDetail', this.props.data)}}>
                     <View style={{
                         width:'100%',
@@ -39,7 +39,7 @@ class WishlistProduct extends Component {
                                 <Text numberOfLines={2} style={{fontSize:10, color:'green'}}> Cicilan mulai 100rb/bln </Text>
                                 <View style={{flexDirection:'row',}}>
                                     {this.state.rate.map((star) =>
-                                        <Image style={{width: 10,height:10}} source={require('../../Assets/Images/Icons/abc_ic_star_black_36dp.png')}/>
+                                        <Image style={{width: 10,height:10}} source={require('../../Assets/Images/Icons/ic_starfilled.png')}/>
                                     )}
                                     <Text style={{marginLeft:5,fontSize:9,color:'#333'}}>(283)</Text>
                                 </View>
