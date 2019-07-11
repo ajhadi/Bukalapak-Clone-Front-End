@@ -33,7 +33,7 @@ import TopBar from './src/Components/Navigation/TopBar';
 // import ProductList from './src/Components/Product/ProductList';
 // import AccountPopup from './src/Screens/AccountPopup';
 // import LoginPopup from './src/Screens/LoginPopup';
-import RegisterPopup from './src/Screens/RegisterPopup';
+// import RegisterPopup from './src/Screens/RegisterPopup';
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -121,8 +121,7 @@ const AppContainer = createAppContainer(StackNavigator);
 export default class App extends Component {
   render(){
     return(
-        // <AppContainer />
-        <RegisterPopup />
+        <AppContainer />
     )
   }
 }
