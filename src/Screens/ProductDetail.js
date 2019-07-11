@@ -60,19 +60,20 @@ export default class ScrollableHeader extends Component {
                     <Text style={{marginTop:5,fontSize:16, fontWeight:'300',color:'#000'}} numberOfLines={2}>Air jordan 7 Retro SP Shoe</Text>
                     <View style={{flexDirection:'row', alignItems:'center'}}>
                         <Text style={{flex:1}}>Rp3.109.000</Text>
-                        <TouchableOpacity style={{ backgroundColor:'#F4F4F4',borderRadius:5,padding:7}}>
-                            <Text style={{color:'#444'}}>Nego</Text>
+                        <TouchableOpacity style={{ backgroundColor:'#F4F4F4',borderRadius:5,padding:3, alignItems:'center', flexDirection:'row'}}>
+                        <Image style={{width:15,height:15, opacity:0.9}} source={require('../Assets/Images/Icons/ic_negofill.png')}/>
+                            <Text style={{color:'#444', margin:3}}>Nego</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
                 <View style={{ justifyContent:'center',alevation:1, flexDirection:'row', padding:6,backgroundColor:'#F8F8F8'}}>
                     <Text style={{color:'#000', flex:1}}>Benefit</Text>
-                    <Image style={{width:25,height:25, opacity:0.7}} source={require('../Assets/Images/Icons/ic_negofill.png')}/>
+                    <Image style={{width:25,height:25, opacity:0.7}} source={require('../Assets/Images/Icons/ic_free_delivery_fee.png')}/>
                 </View>
 
                 <View style={{marginTop:20}}>
                     <TouchableOpacity style={{padding:10,backgroundColor:'#FFF', flexDirection:'row', alignItems:'center'}}>
-                        <Image style={{width:28,height:28, opacity:0.7}} source={require('../Assets/Images/Icons/ico_shipping.png')}/>
+                        <Image style={{width:28,height:28, opacity:0.7}} source={require('../Assets/Images/Icons/ic_cek_ongkir.png')}/>
                         <View style={{flex:1, marginLeft:10}}>
                             <Text>Ongkir mulai Rp11.000</Text>
                             <Text style={{fontSize:10}}>Pengiriman ke Batujajar</Text>
@@ -80,7 +81,7 @@ export default class ScrollableHeader extends Component {
                         <Image style={{width:28,height:28, opacity:0.7}} source={require('../Assets/Images/Icons/ico_chevron_right_minor.png')}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={{padding:10,backgroundColor:'#FFF', flexDirection:'row', alignItems:'center'}}>
-                        <Image style={{width:28,height:28, opacity:0.7}} source={require('../Assets/Images/Icons/ico_credit_card.png')}/>
+                        <Image style={{width:28,height:28, opacity:0.7}} source={require('../Assets/Images/Icons/ic_installment.png')}/>
                         <View style={{flex:1, marginLeft:10}}>
                             <Text>Cicilan 0% mulai Rp280rb/bln</Text>
                         </View>

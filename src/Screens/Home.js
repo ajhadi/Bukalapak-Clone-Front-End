@@ -5,8 +5,12 @@ import {
     View,
     ScrollView,
     } from 'react-native';
-
-import MainMenu from '../Components/Product/MainMenu';
+    
+import TopBar       from '../Components/Navigation/TopBar';
+import MainMenu     from '../Components/Product/MainMenu';
+import LoopCarousel from '../Components/Product/LoopCarousel';
+import FavoriteMenu from '../Components/Product/FavoriteMenu';
+import CategoryMenu from '../Components/Product/CategoryMenu';
 
 
 export default class Home extends Component {
@@ -20,9 +24,15 @@ export default class Home extends Component {
 
     render(){
         return(
-            <ScrollView style={styles.container}>
-                <MainMenu navigation={this.props.navigation}/>
-            </ScrollView>
+            <View>
+            <TopBar/>
+                <ScrollView style={styles.container}>
+                    <MainMenu navigation={this.props.navigation}/>
+                    <LoopCarousel/>
+                    <FavoriteMenu/>
+                    <CategoryMenu/>
+                </ScrollView>
+            </View>
         )
     }
 }
