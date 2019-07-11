@@ -6,9 +6,6 @@ import {
     StyleSheet,
     TouchableOpacity,
 } from 'react-native';
-import LoopCarousel from './LoopCarousel';
-import FavoriteMenu from './FavoriteMenu';
-import CategoryMenu from './CategoryMenu';
 
 export default class Menu extends Component{
     constructor(props){
@@ -38,9 +35,6 @@ export default class Menu extends Component{
                         <Text style={styles.title}>Barang Favorite</Text>
                     </TouchableOpacity>
                 </View>
-                <LoopCarousel/>
-                <FavoriteMenu/>
-                <CategoryMenu/>
             </View>
         )
     }
@@ -50,15 +44,16 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         marginTop:15,
+        marginLeft:5,
+        marginRight:5,
         backgroundColor:'#FFF',
         flexDirection:'row',
-        paddingHorizontal:15
     },
     menu:{
         padding:5,
-        marginHorizontal:10,
-        alignContent:'center',
-        justifyContent:'center'
+        alignItems:'center',
+        justifyContent:'center',
+        flex:1
     },
     icon:{
         width:60,
