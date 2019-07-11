@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, Image, FlatList, StatusBar } from 'react-native';
 
 // Dummy untuk testing
-import Dummy from '../../Assets/DummyData/Notes';
+import Dummy from '../Assets/DummyData/Notes';
 
 class ProductList extends Component {
     render() {
@@ -15,7 +15,7 @@ class ProductList extends Component {
                     renderItem={({item}) => 
                         <View style={styles.card}>
                             <View>
-                                <Image style={styles.img} source={require('../../Assets/Images/Products/IMG_20180519_163440.jpg')} />
+                                <Image style={styles.img} source={require('../Assets/Images/Products/IMG_20180519_163440.jpg')} />
                             </View>
                             <View style={styles.desc}>
                                 <View style={styles.titleBar}>

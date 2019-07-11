@@ -6,63 +6,68 @@ import {
     Image, 
     StatusBar, 
     TouchableOpacity, 
-    TextInput } 
+    TextInput,
+    ScrollView } 
 from 'react-native';
 
-class LoginPopup extends Component {
+class LoginModal extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
-                <TouchableOpacity>
-                    <Image style={styles.headIcon} source={require('../Assets/Images/Icons/ic_back.png')} />
-                </TouchableOpacity>
-                <View style={styles.contain}>
-                    <Text style={styles.title}>Login</Text>
-                    <Text style={styles.label}>E-MAIL / USERNAME / NOMOR HANDPHONE</Text>
-                    <TextInput
-                        style={styles.input}
-                    />
-                    <Text style={styles.label}>PASSWORD</Text>
-                    <TextInput
-                        style={styles.input}
-                    />
-                    <TouchableOpacity style={styles.btnLogin}>
-                        <Text style={styles.btnTextLogin}>Login</Text>
+                <View>
+                    <TouchableOpacity>
+                        <Image style={styles.headIcon} source={require('../Assets/Images/Icons/ic_back.png')} />
                     </TouchableOpacity>
-                    <View style={styles.lineBar}>
-                        <View style={styles.line}/>
-                        <View style={{ width: '40%'}}>
-                            <Text style={styles.textFoot}>atau login dengan</Text>
+                </View>
+                <ScrollView>
+                    <View style={styles.contain}>
+                        <Text style={styles.title}>Login</Text>
+                        <Text style={styles.label}>E-MAIL / USERNAME / NOMOR HANDPHONE</Text>
+                        <TextInput
+                            style={styles.input}
+                        />
+                        <Text style={styles.label}>PASSWORD</Text>
+                        <TextInput
+                            style={styles.input}
+                        />
+                        <TouchableOpacity style={styles.btnLogin}>
+                            <Text style={styles.btnTextLogin}>Login</Text>
+                        </TouchableOpacity>
+                        <View style={styles.lineBar}>
+                            <View style={styles.line} />
+                            <View style={{ width: '40%' }}>
+                                <Text style={styles.textFoot}>atau login dengan</Text>
+                            </View>
+                            <View style={styles.line} />
                         </View>
-                        <View style={styles.line}/>
-                    </View>
-                    <View style={styles.optLoginBar}>
-                        <TouchableOpacity style={styles.optLoginBtn}>
+                        <View style={styles.optLoginBar}>
+                            <TouchableOpacity style={styles.optLoginBtn}>
                                 <Image style={{ height: 23, width: 23, marginRight: 10, }} source={require('../Assets/Images/Icons/ic_facebook.png')} />
                                 <Text style={{ color: '#000', fontSize: 17 }}>
                                     Facebook
                             </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.optLoginBtn}>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.optLoginBtn}>
                                 <Image style={{ height: 23, width: 23, marginRight: 10, }} source={require('../Assets/Images/Icons/ic_googleplus.png')} />
                                 <Text style={{ color: '#000', fontSize: 17 }}>
                                     Google
                             </Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{marginTop: 12}}>
-                        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                            <Text style={styles.textFoot}>Belum punya akun?</Text>
-                            <TouchableOpacity>
-                                <Text style={[styles.textFoot, { color: '#D71149', fontWeight: '500' }]}> Daftar Sekarang</Text>
                             </TouchableOpacity>
                         </View>
-                        <TouchableOpacity>
-                            <Text style={[styles.textFoot, { color: '#D71149', marginTop: 8 }]}>Lupa Password?</Text>
-                        </TouchableOpacity>
+                        <View style={{ marginTop: 12 }}>
+                            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                                <Text style={styles.textFoot}>Belum punya akun?</Text>
+                                <TouchableOpacity>
+                                    <Text style={[styles.textFoot, { color: '#D71149', fontWeight: '500' }]}> Daftar Sekarang</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <TouchableOpacity>
+                                <Text style={[styles.textFoot, { color: '#D71149', marginTop: 8 }]}>Lupa Password?</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                </View>
+                </ScrollView>
             </View>
         );
     }
@@ -143,4 +148,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default LoginPopup;
+export default LoginModal;

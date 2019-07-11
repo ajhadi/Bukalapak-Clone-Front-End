@@ -22,9 +22,15 @@ export default class Menu extends Component{
 
     // carousel ads
     ads = [
-        <Image style={styles.image} source={{uri: 'https://cdn.pixabay.com/photo/2017/05/19/07/34/teacup-2325722__340.jpg'}} />,
-        <Image style={styles.image} source={{uri: 'https://cdn.pixabay.com/photo/2017/05/02/22/43/mushroom-2279558__340.jpg'}} />,
-        <Image style={styles.image} source={{uri: 'https://cdn.pixabay.com/photo/2017/05/18/21/54/tower-bridge-2324875__340.jpg'}} />
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/1.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/2.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/3.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/4.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/5.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/6.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/7.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/8.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/9.jpg')} />,
     ]
     // category img
     images = [
@@ -65,14 +71,14 @@ export default class Menu extends Component{
                         </TouchableOpacity>
                     </View>
                     <View style={{flex:3}}>
-                        <TouchableOpacity>
+                        <View>
                             <Carousel
                                 ref={ ref => this.carouselRef = ref }
                                 data={ this.ads }
                                 renderItem={ ({ item }) => item }
                                 onSnapToItem={ i => this.setState({ activeTab : i }) }
                                 sliderWidth={ width }
-                                itemWidth={ 360 }
+                                itemWidth={ 330 }
                                 slideStyle={{paddingHorizontal:5}}
                                 inactiveSlideOpacity={ 1 }
                                 inactiveSlideScale={ 1 }
@@ -80,7 +86,7 @@ export default class Menu extends Component{
                                 autoplay={true}
                                 autoplayInterval={3000}
                             />
-                        </TouchableOpacity>
+                        </View>
                     </View>   
                 </View>
 
@@ -182,7 +188,9 @@ const styles = StyleSheet.create({
         fontSize:11
     },
     image: {
-        height: 145,
-        borderRadius: 10
+        height: 140,
+        width: 322,
+        borderRadius: 8,
+        alignSelf: 'center',
     },
-  });
+});
