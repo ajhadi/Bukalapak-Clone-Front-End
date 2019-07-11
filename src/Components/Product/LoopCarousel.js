@@ -10,7 +10,7 @@ import {
 from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 const width = Dimensions.get('window').width
-const widthImg = width * 0.9
+const widthImg = width * 0.94
 
 export default class LoopCarousel extends Component {
     ads = [
@@ -34,7 +34,7 @@ export default class LoopCarousel extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={{flex:3}}>
-                    <TouchableOpacity>
+                    <View>
                         <Carousel
                             ref={ ref => this.carouselRef = ref }
                             data={ this.ads }
@@ -49,7 +49,7 @@ export default class LoopCarousel extends Component {
                             autoplay={true}
                             autoplayInterval={3000}
                         />
-                    </TouchableOpacity>
+                    </View>
                 </View>   
             </View>
         )
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     },
     image: {
         height: 140,
-        width: 340,
+        width: 330,
         borderRadius: 8,
         alignSelf: 'center',
     },
