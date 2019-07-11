@@ -4,7 +4,7 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
 
-export default class MyCarousel extends Component {
+export default class TransactionTabs extends Component {
     constructor(props){
         super(props);
         this.state = {

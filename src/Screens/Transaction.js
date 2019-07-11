@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import TransactionTabs from '../Components/Product/TransactionTabs';
 
-class TransaksiScreen extends Component {
+class Transaction extends Component {
     render() {
         return (
             <View>
@@ -12,4 +12,4 @@ class TransaksiScreen extends Component {
     }
 }
 
-export default TransaksiScreen;
+export default Transaction;

@@ -33,15 +33,12 @@ import ProductDetail from './src/Screens/ProductDetail';
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
 
-<<<<<<< HEAD
 // Pengetesan Component
 // import ProductList from './src/Components/Product/ProductList';
 //  import TransactionTabs from './src/Components/Product/TransactionTabs';
 // import AccountPopup from './src/Screens/AccountPopup';
 // import LoginPopup from './src/Screens/LoginPopup';
 // import RegisterPopup from './src/Screens/RegisterPopup';
-=======
->>>>>>> dc2f24b6d8aff86240a213f3f5c32ec389d82901
 
 const TabNavigator = createBottomTabNavigator(
   {

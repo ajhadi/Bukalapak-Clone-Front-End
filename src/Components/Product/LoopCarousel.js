@@ -14,9 +14,15 @@ const widthImg = width * 0.9
 
 export default class LoopCarousel extends Component {
     ads = [
-        <Image style={styles.image} source={{uri: 'https://cdn.pixabay.com/photo/2017/05/19/07/34/teacup-2325722__340.jpg'}} />,
-        <Image style={styles.image} source={{uri: 'https://cdn.pixabay.com/photo/2017/05/02/22/43/mushroom-2279558__340.jpg'}} />,
-        <Image style={styles.image} source={{uri: 'https://cdn.pixabay.com/photo/2017/05/18/21/54/tower-bridge-2324875__340.jpg'}} />
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/1.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/2.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/3.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/4.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/5.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/6.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/7.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/8.jpg')} />,
+        <Image style={styles.image} source={require('../../Assets/Images/Banner/9.jpg')} />,
     ]
     render(){
         return(
@@ -36,7 +42,7 @@ export default class LoopCarousel extends Component {
                             onSnapToItem={ i => this.setState({ activeTab : i }) }
                             sliderWidth={ width }
                             itemWidth={ widthImg }
-                            slideStyle={{paddingHorizontal:5}}
+                            slideStyle={{paddingHorizontal:4}}
                             inactiveSlideOpacity={ 1 }
                             inactiveSlideScale={ 1 }
                             loop={true}
@@ -57,7 +63,9 @@ const styles = StyleSheet.create({
         height:210
     },
     image: {
-        height: 145,
-        borderRadius: 10
+        height: 140,
+        width: 340,
+        borderRadius: 8,
+        alignSelf: 'center',
     },
 });
