@@ -50,8 +50,7 @@ class TopBar extends Component {
     render() {
         return(
             this.props.screen == 'Home'     ? this.HomeNavigation()     :
-            this.props.screen == 'AddNote'  ? this.AddNoteNavigation()  :
-            this.props.screen == 'EditNote' ? this.EditNoteNavigation() : null
+            this.HomeNavigation()
         )
     }
 }
@@ -60,7 +59,6 @@ export default TopBar;
 
 const styles = StyleSheet.create({
     headerContainer:{
-        flexDirection:'row',
         height:60,
         backgroundColor:'#FFF',
         shadowColor: "#000",
