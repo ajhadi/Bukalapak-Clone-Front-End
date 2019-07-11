@@ -21,8 +21,6 @@ export default class Splash extends Component {
 
 };
 
-const win = Dimensions.get('window');
-
 const styles = StyleSheet.create({
     linearGradient: {
         flex: 1,
