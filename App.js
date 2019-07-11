@@ -22,19 +22,26 @@ import HomeScreen from './src/Screens/Home';
 import DiscoverScreen from './src/Screens/Discover';
 import BukaMallScreen from './src/Screens/BukaMall';
 import TransactionScreen from './src/Screens/Transaction';
-import AccountScreen from './src/Screens/Account';
+import AccountScreen from './src/Screens/Account';                       //If Login
+// import AccountNotLoginScreen from './src/Screens/AccountNotLogin';    //If not login
+// import LoginModal from './src/Screens/LoginModal';                    //Not login and select Login
+// import RegisterModal from './src/Screens/RegisterModal';              //Not login and select register
+// import ProductListScreen from './src/Screens/ProductList';            //Display when search product 
 import WishlistScreen from './src/Screens/Wishlist';
 import ProductDetail from './src/Screens/ProductDetail';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
 
+<<<<<<< HEAD
 // Pengetesan Component
 // import ProductList from './src/Components/Product/ProductList';
- import TransactionTabs from './src/Components/Product/TransactionTabs';
+//  import TransactionTabs from './src/Components/Product/TransactionTabs';
 // import AccountPopup from './src/Screens/AccountPopup';
 // import LoginPopup from './src/Screens/LoginPopup';
 // import RegisterPopup from './src/Screens/RegisterPopup';
+=======
+>>>>>>> dc2f24b6d8aff86240a213f3f5c32ec389d82901
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -44,8 +51,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Home',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_homenav_red.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_homenav.png')} />
         ),
       }),
     },
@@ -55,8 +62,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Discover',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')} />
         ),
       },
     },
@@ -66,8 +73,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'BukaMall',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_bukamall_nav_red.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_bukamall_nav.png')} />
         ),
       },
     },
@@ -77,8 +84,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Transaction',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_trans_nav_red.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_trans_nav.png')} />
         ),
       },
     },
@@ -88,8 +95,8 @@ const TabNavigator = createBottomTabNavigator(
         title: 'Account',
         tabBarIcon: ({ focused }) => (
           focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_015.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/abc_btn_check_to_on_mtrl_000.png')} />
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_account_nav_red.png')} /> :
+            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_account_nav.png')} />
         ),
       },
     },
@@ -100,7 +107,7 @@ const StackNavigator = createStackNavigator({
   Home: {
     screen: TabNavigator,
     navigationOptions: ({navigation}) => ({
-      header: (<TopBar navigation={navigation} screen={'Home'} />),
+      header: (null),
     })
   },
   Wishlist: {
@@ -122,8 +129,7 @@ const AppContainer = createAppContainer(StackNavigator);
 export default class App extends Component {
   render(){
     return(
-        // <AppContainer />
-        <TransactionTabs/>
+        <AppContainer />
     )
   }
 }
@@ -131,7 +137,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   icon: {
-    width: 35,
-    height: 35,
+    width: 25,
+    height: 25,
   }
 });

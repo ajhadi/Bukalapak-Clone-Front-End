@@ -12,9 +12,7 @@ import {
 }
     from 'react-native';
 
-class RegisterPopup extends Component {
-
-    
+class RegisterModal extends Component {
     constructor(props) {
         super(props);
 
@@ -231,4 +229,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default RegisterPopup;
+export default RegisterModal;

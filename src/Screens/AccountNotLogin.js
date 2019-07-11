@@ -9,7 +9,7 @@ import {
 
 import {IndicatorViewPager, PagerDotIndicator} from "rn-viewpager";
 
-class AkunScreen extends Component {
+class AccountNotLogin extends Component {
     _renderIndicator() {
         return <PagerDotIndicator pageCount={4}/>
     }
@@ -27,7 +27,7 @@ class AkunScreen extends Component {
                     justifyContent: 'space-between',
                     margin: 18,
                 }}>
-                    <TouchableOpacity style={{ justifyContent: 'center', width: 60 }}>
+                    <TouchableOpacity style={{ justifyContent: 'center', width: 70 }}>
                         <Image
                             style={{
                                 height: 24,
@@ -42,7 +42,7 @@ class AkunScreen extends Component {
                             fontSize: 17,
                         }}>Keuntungan Mendaftar</Text>
                     </View>
-                    <TouchableOpacity style={{ justifyContent: 'center', width: 60 }}>
+                    <TouchableOpacity style={{ justifyContent: 'center', width: 70 }}>
                         <Text style={{
                             color: '#D71149'
                         }}>Menu Lain</Text>
@@ -177,4 +177,4 @@ class AkunScreen extends Component {
     }
 }
 
-export default AkunScreen;
+export default AccountNotLogin;
