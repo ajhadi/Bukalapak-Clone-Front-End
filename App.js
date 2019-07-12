@@ -29,13 +29,14 @@ import AccountScreen from './src/Screens/Account';                       //If Lo
 // import ProductListScreen from './src/Screens/ProductList';            //Display when search product 
 import WishlistScreen from './src/Screens/Wishlist';
 import ProductDetail from './src/Screens/ProductDetail';
+import EditProfileScreen from './src/Screens/EditProfile';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
 
 // Pengetesan Component
 // import ProductList from './src/Components/Product/ProductList';
-//  import TransactionTabs from './src/Components/Product/TransactionTabs';
+// import TransactionTabs from './src/Components/Product/TransactionTabs';
 // import AccountPopup from './src/Screens/AccountPopup';
 // import LoginPopup from './src/Screens/LoginPopup';
 // import RegisterPopup from './src/Screens/RegisterPopup';
@@ -51,6 +52,13 @@ const TabNavigator = createBottomTabNavigator(
             <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_homenav_red.png')} /> :
             <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_homenav.png')} />
         ),
+        tabBarOptions: {
+          activeTintColor: '#D71149',
+          style: {
+            paddingVertical: 6,
+          },
+          keyboardHidesTabBar: true,
+        }
       }),
     },
     Discover: {
@@ -62,6 +70,13 @@ const TabNavigator = createBottomTabNavigator(
             <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')} /> :
             <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')} />
         ),
+        tabBarOptions: {
+          activeTintColor: '#D71149',
+          style: {
+            paddingVertical: 6,
+          },
+          keyboardHidesTabBar: true,
+        }
       },
     },
     BukaMall: {
@@ -73,6 +88,13 @@ const TabNavigator = createBottomTabNavigator(
             <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_bukamall_nav_red.png')} /> :
             <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_bukamall_nav.png')} />
         ),
+        tabBarOptions: {
+          activeTintColor: '#D71149',
+          style: {
+            paddingVertical: 6,
+          },
+          keyboardHidesTabBar: true,
+        }
       },
     },
     Transaction: {
@@ -84,6 +106,13 @@ const TabNavigator = createBottomTabNavigator(
             <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_trans_nav_red.png')} /> :
             <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_trans_nav.png')} />
         ),
+        tabBarOptions: {
+          activeTintColor: '#D71149',
+          style: {
+            paddingVertical: 6,
+          },
+          keyboardHidesTabBar: true,
+        }
       },
     },
     Account: {
@@ -95,6 +124,13 @@ const TabNavigator = createBottomTabNavigator(
             <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_account_nav_red.png')} /> :
             <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_account_nav.png')} />
         ),
+        tabBarOptions: {
+          activeTintColor: '#D71149',
+          style: {
+            paddingVertical: 6,
+          },
+          keyboardHidesTabBar: true,
+        }
       },
     },
   }
@@ -106,6 +142,12 @@ const StackNavigator = createStackNavigator({
     navigationOptions: ({navigation}) => ({
       header: (null),
     })
+  },
+  Account: {
+    screen: AccountScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: (null)
+    }),
   },
   Wishlist: {
     screen: WishlistScreen,
@@ -119,6 +161,13 @@ const StackNavigator = createStackNavigator({
       header:(null)
     }),
   },
+  EditProfile: {
+    screen: EditProfileScreen,
+    navigationOptions: ({navigation}) => ({
+      header:(null)
+    }),
+  },
+  
 });
 
 const AppContainer = createAppContainer(StackNavigator);
@@ -127,6 +176,7 @@ export default class App extends Component {
   render(){
     return(
         <AppContainer />
+        // <EditProfileScreen />
     )
   }
 }

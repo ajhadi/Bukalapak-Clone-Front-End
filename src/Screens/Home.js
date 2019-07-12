@@ -4,6 +4,7 @@ import {
     StyleSheet,
     View,
     ScrollView,
+    StatusBar
     } from 'react-native';
     
 import TopBar       from '../Components/Navigation/TopBar';
@@ -11,7 +12,6 @@ import MainMenu     from '../Components/Product/MainMenu';
 import LoopCarousel from '../Components/Product/LoopCarousel';
 import FavoriteMenu from '../Components/Product/FavoriteMenu';
 import CategoryMenu from '../Components/Product/CategoryMenu';
-
 
 export default class Home extends Component {
 
@@ -25,8 +25,9 @@ export default class Home extends Component {
     render(){
         return(
             <View>
+            <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
             <TopBar/>
-                <ScrollView style={styles.container}>
+                <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                     <MainMenu navigation={this.props.navigation}/>
                     <LoopCarousel/>
                     <FavoriteMenu/>

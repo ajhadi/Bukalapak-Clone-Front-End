@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
         marginTop:15,
         marginLeft:5,
         marginRight:5,
+        paddingTop: 10,
+        paddingBottom: 10,
         backgroundColor:'#FFF',
         flexDirection:'row',
     },
@@ -56,8 +58,8 @@ const styles = StyleSheet.create({
         flex:1
     },
     icon:{
-        width:60,
-        height:60,
+        width:40,
+        height:40,
     },
     title:{
         marginTop:15,
