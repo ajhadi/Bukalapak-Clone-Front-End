@@ -90,7 +90,7 @@ class EditProfile extends Component {
         this.setState({_ModalVisible: bool});
     }
 
-    myFun=()=>{
+    getImage = () => {
         ImagePicker.showImagePicker(options, (response) => {
             console.log('Response = ', response);
            
@@ -124,7 +124,7 @@ class EditProfile extends Component {
                 <ScrollView backgroundColor={'#fff'}>
                     <View style={styles.bar}>
                         <Image style={{width: 55, height: 56, borderRadius: 100}} source={this.state.avatarSource}/>
-                        <TouchableOpacity onPress={this.myFun}>
+                        <TouchableOpacity onPress={this.getImage}>
                             <Text style={{color: 'red'}}>Edit Foto</Text>
                         </TouchableOpacity>
                     </View>
