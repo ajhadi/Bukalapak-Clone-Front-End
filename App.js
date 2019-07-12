@@ -63,9 +63,9 @@ const TabNavigator = createBottomTabNavigator(
                 tabBarIcon: ({focused}) => (
                     focused ?
                         <Image style={styles.icon}
-                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')}/> :
+                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')}/> :
                         <Image style={styles.icon}
-                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')}/>
+                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')}/>
                 ),
                 tabBarOptions: {
                     activeTintColor: '#D71149',

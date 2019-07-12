@@ -1,33 +1,48 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, Image, FlatList, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Button, Image, FlatList, StatusBar, TouchableOpacity } from 'react-native';
 
 // Dummy untuk testing
-import Dummy from '../Assets/DummyData/Notes';
+import { connect } from 'react-redux';
+import { getProducts } from '../Services/Axios/products';
 
 class ProductList extends Component {
+    getProductApi() {
+        this.props.dispatch(getProducts());
+    }
+    
+    componentDidMount() {
+        this.getProductApi();
+    }
+
+    getData() {
+        let product = this.props.products.data || [];
+        return product;
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
                 <FlatList
-                    data={Dummy}    // Dummy untuk testing
+                    showsVerticalScrollIndicator={false}
+                    data={this.getData()}    // Dummy untuk testing
                     numColumns={2}
                     renderItem={({item}) => 
-                        <View style={styles.card}>
+                        <TouchableOpacity style={styles.card}>
                             <View>
-                                <Image style={styles.img} source={require('../Assets/Images/Products/IMG_20180519_163440.jpg')} />
+                                <Image style={styles.img} source={{uri: item.image[0]}} />
                             </View>
                             <View style={styles.desc}>
                                 <View style={styles.titleBar}>
-                                    <Text  style={styles.title} numberOfLines={2}>{'Kaos Polos'}</Text>
+                                    <Text  style={styles.title} numberOfLines={2}>{item.name}</Text>
                                 </View>
-                                <Text style={styles.price} numberOfLines={1}>Rp{'100'}rb</Text>
-                                <Text style={styles.rating} numberOfLines={1}>{'****'} {'201'} Terjual</Text>
+                                <Text style={styles.price} numberOfLines={1}>Rp{item.price}rb</Text>
+                                <Text style={styles.rating} numberOfLines={1}>{item.rating} {'201'} Terjual</Text>
                                 <Text style={styles.location} numberOfLines={1}>{'Jakarta Barat'}</Text>
                                 <Text style={styles.feedback} numberOfLines={1}>{'100% (158 Feedback)'}</Text>
                                 <Button color='#EE4B60' title='Beli' />
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     }
                 />
             </View>
@@ -81,4 +96,10 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ProductList;
+const mapsStageToProps = (state) => {
+    return {
+        products: state.products
+    }
+};
+
+export default connect(mapsStageToProps)(ProductList);
