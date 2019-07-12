@@ -23,7 +23,7 @@ import DiscoverScreen from './src/Screens/Discover';
 import BukaMallScreen from './src/Screens/BukaMall';
 import TransactionScreen from './src/Screens/Transaction';
 import AccountScreen from './src/Screens/Account';                       //If Login
-// import AccountNotLoginScreen from './src/Screens/AccountNotLogin';    //If not login
+import AccountNotLoginScreen from './src/Screens/AccountNotLogin';    //If not login
 // import LoginModal from './src/Screens/LoginModal';                    //Not login and select Login
 // import RegisterModal from './src/Screens/RegisterModal';              //Not login and select register
 // import ProductListScreen from './src/Screens/ProductList';            //Display when search product 
@@ -185,6 +185,12 @@ const StackNavigator = createStackNavigator({
     },
     Search: {
         screen: SearchScreen,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
+    AccountNotLoginScreen: {
+        screen: AccountNotLoginScreen,
         navigationOptions: ({navigation}) => ({
             header: (null)
         }),

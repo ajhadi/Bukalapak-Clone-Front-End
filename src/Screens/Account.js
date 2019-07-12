@@ -7,7 +7,7 @@ import {
     Image,
     StatusBar,
     ScrollView,
-    Dimensions
+    Dimensions,
 }
     from 'react-native';
 
@@ -15,8 +15,28 @@ import LinearGradient from 'react-native-linear-gradient';
 import {connect} from "react-redux";
 
 class Account extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            isLogin:true,
+        };
+      }
+    componentDidMount() {
+        this.state.isLogin == false ? this.props.navigation.navigate('AccountNotLoginScreen'):null;
 
+        this.subs = [
+            this.props.navigation.addListener('willFocus', () => {
+                this.state.isLogin == false ? this.props.navigation.navigate('AccountNotLoginScreen'):null;
+            })
+        ]
+    }
+    componentWillUnmount() {
+        this.subs.forEach(sub => {
+            sub.remove()
+        })
+    }
     render() {
+        
         return (
             <View>
                 <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
