@@ -36,8 +36,9 @@ class EditProfile extends Component {
 
     updateAccountApi = () => {
         const {name, birth, gender} = this.state;
+        this.props.navigation.goBack(null);
         this.props.dispatch(updateAccount(this.props.account.token, {name, birth, gender}));
-    }
+    };
     
     showDateTimePicker = () => {
         this.setState({ isDateTimePickerVisible: true });

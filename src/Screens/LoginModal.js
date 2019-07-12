@@ -44,7 +44,9 @@ class LoginModal extends Component {
             <View style={styles.container}>
                 <StatusBar backgroundColor="#FFF" barStyle="dark-content"/>
                 <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.goBack(null)}
+                    >
                         <Image style={styles.headIcon} source={require('../Assets/Images/Icons/ic_back.png')}/>
                     </TouchableOpacity>
                 </View>

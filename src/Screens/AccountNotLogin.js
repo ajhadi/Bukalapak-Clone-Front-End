@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import {IndicatorViewPager, PagerDotIndicator} from "rn-viewpager";
+import RegisterModal from "./RegisterModal";
 
 class AccountNotLogin extends Component {
     constructor(props){
@@ -145,7 +146,9 @@ class AccountNotLogin extends Component {
                     alignItems: 'center',
                     justifyContent: 'center'
                 }}>
-                    <TouchableOpacity style={{
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('LoginModal')}
+                        style={{
                         backgroundColor: '#f5f5f5',
                         borderColor: '#ddd',
                         borderStyle: 'solid',
@@ -164,7 +167,9 @@ class AccountNotLogin extends Component {
                             }}
                         >Login</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('RegisterModal')}
+                        style={{
                         backgroundColor: '#D71149',
                         borderRadius: 2,
                         marginLeft: 5,

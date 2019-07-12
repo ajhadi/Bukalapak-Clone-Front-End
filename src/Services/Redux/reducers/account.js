@@ -94,7 +94,7 @@ export default account = (state = initialState, action) => {
 
         }
 
-        case 'PATCH_ACCOUNT_PENDING': {
+        case 'UPDATE_ACCOUNT_PENDING': {
             return {
                 ...state,
                 error: true,
@@ -102,7 +102,7 @@ export default account = (state = initialState, action) => {
             }
 
         }
-        case 'PATCH_ACCOUNT_REJECTED': {
+        case 'UPDATE_ACCOUNT_REJECTED': {
             return {
                 ...state,
                 error: true,
@@ -110,7 +110,8 @@ export default account = (state = initialState, action) => {
             }
 
         }
-        case 'PATCH_ACCOUNT_FULFILLED': {
+        case 'UPDATE_ACCOUNT_FULFILLED': {
+            console.log("masuk123");
             return {
                 ...state,
                 error: false,

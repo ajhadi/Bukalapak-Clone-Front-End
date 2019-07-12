@@ -35,7 +35,7 @@ export const updateAccount = (token, data) => {
     let header = {
         'Content-Type': 'application/json',
         'x-auth-token': token
-    }
+    };
 
     return {
         type: 'UPDATE_ACCOUNT',

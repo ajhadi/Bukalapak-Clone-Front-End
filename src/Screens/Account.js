@@ -20,7 +20,7 @@ class Account extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isLogin: false,
+            isLogin: this.props.account.isLogin,
         };
       }
     
@@ -30,6 +30,7 @@ class Account extends Component {
 
     componentDidMount() {
         this.getAccountApi();
+        this.setState({isLogin: this.props.account.isLogin});
         this.state.isLogin == false ? this.props.navigation.navigate('AccountNotLoginScreen'):null;
 
         this.subs = [
@@ -39,6 +40,7 @@ class Account extends Component {
         ]
     }
     componentWillUnmount() {
+        this.setState({isLogin: this.props.account.isLogin});
         this.subs.forEach(sub => {
             sub.remove()
         })
