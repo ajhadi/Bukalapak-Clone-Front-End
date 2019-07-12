@@ -7,10 +7,11 @@ const connect = async (url, method, data, headers,) => {
         data: data,
         url: url,
     };
-    console.log("AXIOS LOG")
+    console.log("AXIOS LOG");
     console.log(options);
     try {
-        return await axios(options);
+        let data = await axios(options);
+        return data;
     } catch (e) {
         throw e;
     }

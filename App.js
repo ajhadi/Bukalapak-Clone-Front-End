@@ -176,12 +176,7 @@ const StackNavigator = createStackNavigator({
             header: (null)
         }),
     },
-    ProductDetail: {
-        screen: ProductDetail,
-        navigationOptions: ({navigation}) => ({
-            header: (null)
-        }),
-    },
+
     Checkout: {
         screen: CheckoutScreen,
         navigationOptions: ({navigation}) => ({
