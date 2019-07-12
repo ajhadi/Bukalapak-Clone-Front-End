@@ -11,7 +11,7 @@ import {
 }
     from 'react-native';
 import {connect} from 'react-redux';
-import {postLogin} from "../Services/Axios/account";
+import {postLogin, getAccount} from "../Services/Axios/account";
 
 class LoginModal extends Component {
     constructor(props) {
@@ -31,7 +31,7 @@ class LoginModal extends Component {
                 {cancelable: false},
             )
         } else {
-
+            this.props.dispatch(getAccount(this.props.account.token));
         }
     };
 
