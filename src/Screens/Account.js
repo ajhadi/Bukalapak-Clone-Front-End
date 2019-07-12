@@ -13,9 +13,15 @@ import {
 
 import LinearGradient from 'react-native-linear-gradient';
 import {connect} from "react-redux";
+import {getAccount} from '../Services/Axios/account';
 
 class Account extends Component {
-
+    componentDidMount() {
+        this.getAccountApi();
+    }
+    getAccountApi() {
+        this.props.dispatch(getAccount(this.props.account.token))
+    }
     render() {
         return (
             <View>

@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import DateTimePicker from "react-native-modal-datetime-picker";
+import { connect } from "react-redux";
+import { updateAccount } from '../Services/Axios/account';
 
 const options = {
     title: 'Upload Photo',
@@ -22,16 +24,21 @@ class EditProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: 'fdlnfjrrmdni',
-            name: 'Fadlan Fajar Ramdani',
-            birth: '22/12/2000',
-            gender: 'Laki-laki',
+            username: this.props.account.data.username || '',
+            name: this.props.account.data.name || '',
+            birth: this.props.account.data.birth || 'Pilih',
+            gender: this.props.account.data.gender || 'Laki-laki',
             _ModalVisible: false,
             isDateTimePickerVisible: false,
             avatarSource:null
         }
     }
 
+    updateAccountApi = () => {
+        const {name, birth, gender} = this.state;
+        this.props.dispatch(updateAccount(this.props.account.token, {name, birth, gender}));
+    }
+    
     showDateTimePicker = () => {
         this.setState({ isDateTimePickerVisible: true });
     };
@@ -40,8 +47,41 @@ class EditProfile extends Component {
         this.setState({ isDateTimePickerVisible: false });
     };
     
+    dateFormat = (d) => {
+        let date = new Date(d);
+
+        if (isNaN(date.getTime())) {
+            return d;
+        }
+        else {
+            let month = new Array();
+            month[0] = "01";
+            month[1] = "02";
+            month[2] = "03";
+            month[3] = "04";
+            month[4] = "05";
+            month[5] = "06";
+            month[6] = "07";
+            month[7] = "08";
+            month[8] = "09";
+            month[9] = "10";
+            month[10] = "11";
+            month[11] = "12";
+
+            day = date.getDate();
+            var yy = date.getFullYear().toString();
+
+            if (day < 10) {
+                day = "0" + day;
+            }
+
+            return day + "/" + month[date.getMonth()] + "/" + yy;
+        }
+    }
+
     handleDatePicked = date => {
-        console.log("A date has been picked: ", date);
+        let newDate = this.dateFormat(date);
+        this.setState({birth: newDate});
         this.hideDateTimePicker();
     };
 
@@ -82,7 +122,7 @@ class EditProfile extends Component {
                 </View>
                 <ScrollView backgroundColor={'#fff'}>
                     <View style={styles.bar}>
-                        <Image style={{width: 40, height: 40}} source={this.state.avatarSource}/>
+                        <Image style={{width: 55, height: 56, borderRadius: 100}} source={this.state.avatarSource}/>
                         <TouchableOpacity onPress={this.myFun}>
                             <Text style={{color: 'red'}}>Edit Foto</Text>
                         </TouchableOpacity>
@@ -93,7 +133,8 @@ class EditProfile extends Component {
                     </View>
                     <View style={styles.bar}>
                         <Text style={styles.textLeft}>Nama</Text>
-                        <TextInput style={[styles.textRight, {padding: 0}]} value={this.state.name}/>
+                        <TextInput placeholder='Masukkan' style={[styles.textRight, { padding: 0 }]} onChangeText={(text) => this.setState({ name: text })}
+                            defaultValue={this.props.account.data.name}/>
                     </View>
                     <View style={styles.bar}>
                         <Text style={styles.textLeft}>Tanggal Lahir</Text>
@@ -121,8 +162,8 @@ class EditProfile extends Component {
                         justifyContent: 'center',
                         borderRadius: 2,
                         marginLeft: 20,
-                        marginRight: 20
-                    }}>
+                        marginRight: 20,
+                    }} onPress={this.updateAccountApi}>
                         <Text style={{
                             color: '#fff',
                             fontSize: 17
@@ -209,4 +250,10 @@ const styles = StyleSheet.create({
     },
 });
 
-export default EditProfile;
+const mapsStageToProps = (state) => {
+    return {
+        account: state.account
+    }
+};
+
+export default connect(mapsStageToProps)(EditProfile);
