@@ -12,12 +12,45 @@ import {
     Image
 } 
 from 'react-native';
+import ImagePicker from 'react-native-image-picker';
+
 const {width, height} = Dimensions.get('window');
+const options = {
+    title: 'Upload Photo',
+    takePhotoButtonTitle: 'Camera',
+    chooseFromLibraryButtonTitle: 'Galery',
+}
 export default class SellProduct extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            avatarSource:null
+        }
+    }
+    getImage = () => {
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response);
+            if (response.didCancel) {
+              console.log('User cancelled image picker');
+            } else if (response.error) {
+              console.log('ImagePicker Error: ', response.error);
+            
+            } else {
+              const source = { uri: response.uri };
+           
+              // You can also display the image using data:
+              // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+           
+              this.setState({
+                avatarSource: source,
+              });
+            }
+          });
+    }
     render(){
         return(
             <View>
-            <StatusBar backgroundColor="#FFF" barStyle="dark-content"/>
+                <StatusBar backgroundColor="#FFF" barStyle="dark-content"/>
                 <View style={styles.header}>
                     <TouchableOpacity style={{width: 50}}>
                         <Image style={styles.headIcon} source={require('../Assets/Images/Icons/ic_back.png')}/>
@@ -27,62 +60,65 @@ export default class SellProduct extends Component {
                     </Text>
                     <View style={{width: 50}}></View>
                 </View>
-            <ScrollView>
-                <View style={styles.container}> 
-                    <View style={{flex:1}}>
-                        <Text>Nama Barang</Text>
-                        <TextInput style={styles.input} placeholder={'Masukkan nama barang'}/>
-                    </View>
-                    <View style={styles.contain}>
-                        <Text>Kategori</Text>
-                        <TextInput style={styles.input} placeholder={'Pilih kategori'}/>
-                    </View>
-                    <View style={[styles.contain,{flexDirection:'row'}]}>
-                        <View style={{flex:2}}>
-                            <Text>Harga</Text>
-                            <View style={[styles.form,{width:width*0.53}]}>
-                                <Text style={styles.text}>Rp</Text>
-                                <TextInput style={{width:130,marginHorizontal:5}} value={'0'}/>
-                            </View>
-                        </View>
+                <ScrollView>
+                    <View style={styles.container}> 
                         <View style={{flex:1}}>
-                            <Text>Stok</Text>
-                            <TextInput style={styles.input} value={'1'}/>
+                            <Text>Nama Barang</Text>
+                            <TextInput style={styles.input} placeholder={'Masukkan nama barang'}/>
                         </View>
-                    </View>
-                    <View style={styles.contain}>
-                        <Text>Berat</Text>
-                        <View style={{flexDirection:'row'}}>
-                            <View style={[styles.form,{width:width*0.7}]}>
-                                <TextInput style={{width:width*0.478,marginHorizontal:5}} value={'0'}/>    
-                                <Text style={styles.text}>gram</Text>
+                        <View style={styles.contain}>
+                            <Text>Kategori</Text>
+                            <TextInput style={styles.input} placeholder={'Pilih kategori'}/>
+                        </View>
+                        <View style={[styles.contain,{flexDirection:'row'}]}>
+                            <View style={{flex:2}}>
+                                <Text>Harga</Text>
+                                <View style={[styles.form,{width:width*0.53}]}>
+                                    <Text style={styles.text}>Rp</Text>
+                                    <TextInput style={{width:130,marginHorizontal:5}} value={'0'}/>
+                                </View>
                             </View>
-                            <CheckBox/>
-                            <Text>Baru</Text>                       
+                            <View style={{flex:1}}>
+                                <Text>Stok</Text>
+                                <TextInput style={styles.input} value={'1'}/>
+                            </View>
+                        </View>
+                        <View style={styles.contain}>
+                            <Text>Berat</Text>
+                            <View style={{flexDirection:'row'}}>
+                                <View style={[styles.form,{width:width*0.7}]}>
+                                    <TextInput style={{width:width*0.478,marginHorizontal:5}} value={'0'}/>    
+                                    <Text style={styles.text}>gram</Text>
+                                </View>
+                                <CheckBox/>
+                                <Text>Baru</Text>                       
+                            </View>
+                        </View>
+                        <View style={styles.contain}>
+                            <Text>Deskripsi Barang</Text>
+                            <TextInput style={styles.input} placeholder={'Isi deskripsi barangmu'}/>
+                        </View>
+                        <View style={styles.contain}>
+                            <Text>Foto</Text>
+                            <View style={{flex:1,flexDirection:'row'}}>
+                                <Image style={{width: 40, height: 40}} source={this.state.avatarSource}/>
+                            </View>
+                            <TouchableOpacity onPress={this.getImage} style={[styles.btn,{backgroundColor:'#ddd'}]}>
+                                <Text style={{fontWeight:'bold'}}>Tambah Foto Barang</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={[styles.contain,{marginTop:10}]}>
+                            <TouchableOpacity style={[styles.btn,{backgroundColor:'#D71149'}]}>
+                                <Text style={{color:'#fff'}}>Jual Barang</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={[styles.contain,{alignItems:'center',marginTop:-30}]}>
+                            <TouchableOpacity>
+                                <Text style={{color:'red',fontSize:17}}>Lengkapi Detail Barang</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={styles.contain}>
-                        <Text>Deskripsi Barang</Text>
-                        <TextInput style={styles.input} placeholder={'Isi deskripsi barangmu'}/>
-                    </View>
-                    <View style={styles.contain}>
-                        <Text>Foto</Text>
-                        <TouchableOpacity style={[styles.btn,{backgroundColor:'#ddd'}]}>
-                            <Text style={{fontWeight:'bold'}}>Tambah Foto Barang</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.contain}>
-                        <TouchableOpacity style={[styles.btn,{backgroundColor:'#D71149'}]}>
-                            <Text style={{color:'#fff'}}>Jual Barang</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={[styles.contain,{alignItems:'center',marginTop:-30}]}>
-                        <TouchableOpacity>
-                            <Text style={{color:'red',fontSize:17}}>Lengkapi Detail Barang</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </ScrollView>
+                </ScrollView>
             </View>
         )
     }
