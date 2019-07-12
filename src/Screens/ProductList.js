@@ -18,6 +18,21 @@ class ProductList extends Component {
         return product;
     }
 
+    priceFormat(number) {
+
+        var number_string = number.toString(),
+            sisa = number_string.length % 3,
+            rupiah = number_string.substr(0, sisa),
+            ribuan = number_string.substr(sisa).match(/\d{3}/g);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        
+        return rupiah;
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -35,7 +50,7 @@ class ProductList extends Component {
                                 <View style={styles.titleBar}>
                                     <Text  style={styles.title} numberOfLines={2}>{item.name}</Text>
                                 </View>
-                                <Text style={styles.price} numberOfLines={1}>Rp{item.price}rb</Text>
+                                <Text style={styles.price} numberOfLines={1}>Rp {this.priceFormat(item.price)}</Text>
                                 <Text style={styles.rating} numberOfLines={1}>{item.rating} {'201'} Terjual</Text>
                                 <Text style={styles.location} numberOfLines={1}>{'Jakarta Barat'}</Text>
                                 <Text style={styles.feedback} numberOfLines={1}>{'100% (158 Feedback)'}</Text>
