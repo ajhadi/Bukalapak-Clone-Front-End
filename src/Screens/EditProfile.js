@@ -8,8 +8,15 @@ import {
     Image,
     TextInput,
     Modal
+} from 'react-native';
+import ImagePicker from 'react-native-image-picker';
+import DateTimePicker from "react-native-modal-datetime-picker";
+
+const options = {
+    title: 'Upload Photo',
+    takePhotoButtonTitle: 'Camera',
+    chooseFromLibraryButtonTitle: 'Galery',
 }
-    from 'react-native';
 
 class EditProfile extends Component {
     constructor(props) {
@@ -20,13 +27,49 @@ class EditProfile extends Component {
             birth: '22/12/2000',
             gender: 'Laki-laki',
             _ModalVisible: false,
+            isDateTimePickerVisible: false,
+            avatarSource:null
         }
     }
+
+    showDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: true });
+    };
+    
+    hideDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: false });
+    };
+    
+    handleDatePicked = date => {
+        console.log("A date has been picked: ", date);
+        this.hideDateTimePicker();
+    };
 
     setModalVisibility = (bool) => {
         this.setState({_ModalVisible: bool});
     }
 
+    myFun=()=>{
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response);
+           
+            if (response.didCancel) {
+              console.log('User cancelled image picker');
+            } else if (response.error) {
+              console.log('ImagePicker Error: ', response.error);
+            
+            } else {
+              const source = { uri: response.uri };
+           
+              // You can also display the image using data:
+              // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+           
+              this.setState({
+                avatarSource: source,
+              });
+            }
+          });
+    }
     render() {
         return (
             <View>
@@ -39,8 +82,8 @@ class EditProfile extends Component {
                 </View>
                 <ScrollView backgroundColor={'#fff'}>
                     <View style={styles.bar}>
-                        <Image style={{width: 40, height: 40}} source={require('../Assets/Images/Icons/avatar.png')}/>
-                        <TouchableOpacity>
+                        <Image style={{width: 40, height: 40}} source={this.state.avatarSource}/>
+                        <TouchableOpacity onPress={this.myFun}>
                             <Text style={{color: 'red'}}>Edit Foto</Text>
                         </TouchableOpacity>
                     </View>
@@ -54,7 +97,14 @@ class EditProfile extends Component {
                     </View>
                     <View style={styles.bar}>
                         <Text style={styles.textLeft}>Tanggal Lahir</Text>
-                        <Text style={styles.textRight}>{this.state.birth}</Text>
+                        <TouchableOpacity onPress={this.showDateTimePicker}>
+                            <Text style={styles.textRight}>{this.state.birth}</Text>
+                            <DateTimePicker
+                                isVisible={this.state.isDateTimePickerVisible}
+                                onConfirm={this.handleDatePicked}
+                                onCancel={this.hideDateTimePicker}
+                            />
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.bar}>
                         <Text style={styles.textLeft}>Jenis Kelamin</Text>
