@@ -5,9 +5,7 @@ import TransactionTabs from '../Components/Product/TransactionTabs';
 class Transaction extends Component {
     render() {
         return (
-            <View>
-            <TransactionTabs/>
-            </View>
+             <TransactionTabs/>
         );
     }
 }

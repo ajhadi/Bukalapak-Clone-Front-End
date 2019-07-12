@@ -33,8 +33,9 @@ export default class CategoryMenu extends Component {
                         showsHorizontalScrollIndicator={false}
                     >   
                         <View style={{flexDirection:'row',marginLeft:10,marginRight:10}}>
-                        {images.map(image => (
-                            <View>
+                            {/*Fix error key */}
+                        {images.map((image,index) => (
+                            <View key={index}>
                                 <TouchableOpacity>
                                     <Image style={{height:90,width:120,borderRadius:10,margin:5}} source={image} />
                                 </TouchableOpacity>
