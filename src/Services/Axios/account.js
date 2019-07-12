@@ -12,6 +12,12 @@ export const postLogin = (username, password) => {
         payload:connect(SERVER_API+'login','POST',data)
     };
 };
+export const postRegister = (data) => {
+    return {
+        type: 'POST_REGISTER',
+        payload: connect(SERVER_API + 'register', 'POST', data)
+    };
+};
 
 export const getAccount = (token) => {
     let header = {

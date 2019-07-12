@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
     Text,
     View,
@@ -8,27 +8,61 @@ import {
     TouchableOpacity,
     TextInput,
     ScrollView,
-    CheckBox,
+    CheckBox, Alert,
 }
     from 'react-native';
+import {postLogin, postRegister} from "../Services/Axios/account";
+
+import {connect} from "react-redux";
+import SmsOTP from "./SmsOTP";
 
 class RegisterModal extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            borderColorP: '#ddd',
-            borderColorL: '#ddd',
+            name: '',
+            noHp: '',
+            jk: '',
+            username: '',
+            password1: '',
+            password2: '',
+            referral: '',
+            checked: false
         }
+    }
+
+    register() {
+
+        let state = this.state;
+        if (state.name == '' || state.noHp == '' || state.jk == '' || state.username == '' || state.password1 == '' || this.state.checked == false) {
+            Alert.alert('Alert', 'lengkapi form kembali')
+        } else {
+            if (state.password1 != state.password2) {
+                Alert.alert('Alert', 'password tidak sama')
+            } else {
+                let data = {
+                    name: this.state.name,
+                    email: this.state.noHp,
+                    gender: this.state.jk,
+                    username: this.state.username,
+                    password: this.state.password1,
+                    referral: this.state.referral || ''
+                };
+
+                this.props.navigation.navigate('SmsOTP', data);
+            }
+        }
+
     }
 
     render() {
         return (
             <View>
-                <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
+                <StatusBar backgroundColor="#FFF" barStyle="dark-content"/>
                 <View style={styles.header}>
                     <TouchableOpacity style={{width: 50}}>
-                        <Image style={styles.headIcon} source={require('../Assets/Images/Icons/ic_back.png')} />
+                        <Image style={styles.headIcon} source={require('../Assets/Images/Icons/ic_back.png')}/>
                     </TouchableOpacity>
                     <Text style={styles.headTitle}>
                         Daftar
@@ -39,88 +73,96 @@ class RegisterModal extends Component {
                     <View style={styles.container}>
                         <Text style={styles.title}>Daftar</Text>
                         <View style={styles.lineBar}>
-                            <View style={styles.line} />
-                            <View style={{ width: '40%' }}>
+                            <View style={styles.line}/>
+                            <View style={{width: '40%'}}>
                                 <Text style={styles.textFoot}>menggunakan</Text>
                             </View>
-                            <View style={styles.line} />
+                            <View style={styles.line}/>
                         </View>
                         <View style={styles.optLoginBar}>
                             <TouchableOpacity style={styles.optLoginBtn}>
-                                <Image style={{ height: 23, width: 23, marginRight: 10, }} source={require('../Assets/Images/Icons/ic_facebook.png')} />
-                                <Text style={{ color: '#000', fontSize: 17 }}>
+                                <Image style={{height: 23, width: 23, marginRight: 10,}}
+                                       source={require('../Assets/Images/Icons/ic_facebook.png')}/>
+                                <Text style={{color: '#000', fontSize: 17}}>
                                     Facebook
-                            </Text>
+                                </Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.optLoginBtn}>
-                                <Image style={{ height: 23, width: 23, marginRight: 10, }} source={require('../Assets/Images/Icons/ic_googleplus.png')} />
-                                <Text style={{ color: '#000', fontSize: 17 }}>
+                                <Image style={{height: 23, width: 23, marginRight: 10,}}
+                                       source={require('../Assets/Images/Icons/ic_googleplus.png')}/>
+                                <Text style={{color: '#000', fontSize: 17}}>
                                     Google
-                            </Text>
+                                </Text>
                             </TouchableOpacity>
                         </View>
                         <Text style={styles.label}>NAMA LENGKAP</Text>
                         <TextInput
+                            onChangeText={(name) => this.setState({name})}
                             style={styles.input}
+
                         />
+
                         <Text style={styles.label}>NO. HANDPHONE / E-MAIL</Text>
                         <TextInput
+                            onChangeText={(noHp) => this.setState({noHp})}
                             style={styles.input}
                         />
                         <Text style={styles.label}>JENIS KELAMIN</Text>
                         <View style={styles.checkBar}>
-                            <TouchableOpacity 
-                            style={[styles.checkBox, {
-                                    borderColor: this.state.borderColorL
-                                }]}>
+                            <TouchableOpacity
+                                style={[styles.checkBox, {
+                                    borderColor: (this.state.jk == 'l') ? '#ff2742' : '#ddd'
+                                }]}
+                                onPress={() => this.setState({jk: 'l'})}
+                            >
                                 <Image style={styles.gender} source={require('../Assets/Images/Icons/ic_man.png')}/>
-                                <Text style={{ color: '#000', marginTop: 10 }}>Laki-laki</Text>
+                                <Text style={{color: '#000', marginTop: 10}}>Laki-laki</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity 
-                            style={[styles.checkBox, {
-                                    borderColor: this.state.borderColorP
-                                }]}>
+                            <TouchableOpacity
+                                style={[styles.checkBox, {
+                                    borderColor: (this.state.jk == 'p') ? '#ff2742' : '#ddd'
+                                }]}
+                                onPress={() => this.setState({jk: 'p'})}
+                            >
                                 <Image style={styles.gender} source={require('../Assets/Images/Icons/ic_woman.png')}/>
-                                <Text style={{ color: '#000', marginTop: 10 }}>Perempuan</Text>
+                                <Text style={{color: '#000', marginTop: 10}}>Perempuan</Text>
                             </TouchableOpacity>
                         </View>
                         <Text style={styles.label}>USERNAME</Text>
                         <TextInput
                             style={styles.input}
+                            onChangeText={(username) => this.setState({username})}
                         />
                         <Text style={styles.label}>PASSWORD BUKALAPAK</Text>
                         <TextInput
                             style={styles.input}
+                            secureTextEntry={true}
+                            onChangeText={(password1) => this.setState({password1})}
                         />
                         <Text style={styles.label}>KETIK ULANG PASSWORD</Text>
                         <TextInput
                             style={styles.input}
+                            onChangeText={(password2) => this.setState({password2})}
+                            secureTextEntry={true}
                         />
                         <Text style={styles.label}>KODE REFERRAL (OPSIONAL)</Text>
                         <TextInput
                             style={styles.input}
+                            onChangeText={(referral) => this.setState({referral})}
                         />
-                        <View style={{ flexDirection: 'row', marginBottom: 10 }}>
+                        <View style={{flexDirection: 'row', marginBottom: 10}}>
                             <CheckBox
                                 value={this.state.checked}
-                                onValueChange={() => this.setState({ checked: !this.state.checked })}
+                                onValueChange={() => this.setState({checked: !this.state.checked})}
                             />
-                            <Text style={{ marginTop: 5 }}> Dengan mendaftar, Anda telah menyetujui aturan penggunaan dan kebijakan privasi Bukalapak.com</Text>
+                            <Text style={{marginTop: 5}}> Dengan mendaftar, Anda telah menyetujui aturan penggunaan dan
+                                kebijakan privasi Bukalapak.com</Text>
                         </View>
-                        <TouchableOpacity style={styles.btnLogin}>
+                        <TouchableOpacity
+                            onPress={() => this.register()}
+                            style={styles.btnLogin}>
                             <Text style={styles.btnTextLogin}>Daftar</Text>
                         </TouchableOpacity>
-                        <View style={{ marginTop: 12 }}>
-                            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                                <Text style={styles.textFoot}>Belum punya akun?</Text>
-                                <TouchableOpacity>
-                                    <Text style={[styles.textFoot, { color: '#D71149', fontWeight: '500' }]}> Daftar Sekarang</Text>
-                                </TouchableOpacity>
-                            </View>
-                            <TouchableOpacity>
-                                <Text style={[styles.textFoot, { color: '#D71149', marginTop: 8 }]}>Lupa Password?</Text>
-                            </TouchableOpacity>
-                        </View>
                     </View>
                 </ScrollView>
             </View>
@@ -128,13 +170,21 @@ class RegisterModal extends Component {
     }
 }
 
+const mapsStageToProps = (state) => {
+    return {
+        account: state.account
+    }
+};
+
+export default connect(mapsStageToProps)(RegisterModal);
+
 const styles = StyleSheet.create({
     container: {
         padding: 20,
     },
-    header: { 
-        flexDirection: 'row', 
-        justifyContent: 'space-between', 
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         paddingLeft: 20,
         paddingRight: 20,
         paddingTop: 20,
@@ -144,8 +194,8 @@ const styles = StyleSheet.create({
         width: 25,
         height: 25
     },
-    headTitle: { 
-        fontSize: 18, 
+    headTitle: {
+        fontSize: 18,
         fontWeight: '500',
         color: '#000'
     },
@@ -171,6 +221,7 @@ const styles = StyleSheet.create({
         height: 45,
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: 45
     },
     btnTextLogin: {
         color: '#fff',
@@ -228,5 +279,3 @@ const styles = StyleSheet.create({
         height: 50,
     }
 });
-
-export default RegisterModal;

@@ -65,6 +65,34 @@ export default account = (state = initialState, action) => {
             }
 
         }
+
+        //GET_ACCOUNT
+        case 'POST_REGISTER_PENDING': {
+            return {
+                ...state,
+                error: true,
+                isLoading: true
+            }
+
+        }
+        case 'POST_REGISTER_REJECTED': {
+            return {
+                ...state,
+                error: true,
+                isLoading: false
+            }
+
+        }
+        case 'POST_REGISTER_FULFILLED': {
+            return {
+                ...state,
+                error: false,
+                //data: action.payload.data.value.data,
+                isLogin: true,
+                isLoading: false
+            }
+
+        }
         default:
             return state;
     }
