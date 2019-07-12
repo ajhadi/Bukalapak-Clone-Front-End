@@ -23,7 +23,7 @@ import DiscoverScreen from './src/Screens/Discover';
 import BukaMallScreen from './src/Screens/BukaMall';
 import TransactionScreen from './src/Screens/Transaction';
 import AccountScreen from './src/Screens/Account';                       //If Login
-// import AccountNotLoginScreen from './src/Screens/AccountNotLogin';    //If not login
+import AccountNotLoginScreen from './src/Screens/AccountNotLogin';    //If not login
 // import LoginModal from './src/Screens/LoginModal';                    //Not login and select Login
 // import RegisterModal from './src/Screens/RegisterModal';              //Not login and select register
 // import ProductListScreen from './src/Screens/ProductList';            //Display when search product 
@@ -32,6 +32,7 @@ import ProductDetail from './src/Screens/ProductDetail';
 import CartScreen from './src/Screens/Cart';
 import EditProfileScreen from './src/Screens/EditProfile';
 import CheckoutScreen from './src/Screens/Checkout';
+import SearchScreen from './src/Screens/Search';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
@@ -155,7 +156,7 @@ const StackNavigator = createStackNavigator({
     Wishlist: {
         screen: WishlistScreen,
         navigationOptions: ({navigation}) => ({
-            header: (<TopBar navigation={navigation} screen={'Home'}/>)
+            header: (null)
         }),
     },
     ProductDetail: {
@@ -176,9 +177,20 @@ const StackNavigator = createStackNavigator({
             header: (null)
         }),
     },
-
     Checkout: {
         screen: CheckoutScreen,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
+    Search: {
+        screen: SearchScreen,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
+    AccountNotLoginScreen: {
+        screen: AccountNotLoginScreen,
         navigationOptions: ({navigation}) => ({
             header: (null)
         }),

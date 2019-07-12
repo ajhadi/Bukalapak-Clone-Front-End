@@ -10,6 +10,13 @@ import {
 import {IndicatorViewPager, PagerDotIndicator} from "rn-viewpager";
 
 class AccountNotLogin extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            modalVisible:true,
+        };
+      }
+
     _renderIndicator() {
         return <PagerDotIndicator pageCount={4}/>
     }
@@ -27,7 +34,7 @@ class AccountNotLogin extends Component {
                     justifyContent: 'space-between',
                     margin: 18,
                 }}>
-                    <TouchableOpacity style={{ justifyContent: 'center', width: 70 }}>
+                    <TouchableOpacity onPress={()=> this.props.navigation.navigate('Home')} style={{ justifyContent: 'center', width: 70 }}>
                         <Image
                             style={{
                                 height: 24,

@@ -621,7 +621,11 @@
 				9DAC7C3E99C34EAEAF4BE38B /* RNGestureHandler.xcodeproj */,
 				45C5D7853A4A424181B58735 /* BVLinearGradient.xcodeproj */,
 				BA43B63D94684848AB40B25B /* RNVectorIcons.xcodeproj */,
+<<<<<<< HEAD
+				3461A5B0BEE84BC4A6A2A2EC /* RNImagePicker.xcodeproj */,
+=======
 				C9EECF7B94A242D4AED09CE2 /* RNImagePicker.xcodeproj */,
+>>>>>>> 32036b435f123ebbdaae1ae271aa4665f38bf91e
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1291,8 +1295,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
+=======
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> 32036b435f123ebbdaae1ae271aa4665f38bf91e
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1322,8 +1329,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
+=======
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> 32036b435f123ebbdaae1ae271aa4665f38bf91e
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1412,8 +1422,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
+=======
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> 32036b435f123ebbdaae1ae271aa4665f38bf91e
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1451,8 +1464,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
+=======
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> 32036b435f123ebbdaae1ae271aa4665f38bf91e
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1489,8 +1505,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
+=======
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> 32036b435f123ebbdaae1ae271aa4665f38bf91e
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1527,8 +1546,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
+=======
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> 32036b435f123ebbdaae1ae271aa4665f38bf91e
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

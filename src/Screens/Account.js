@@ -7,7 +7,7 @@ import {
     Image,
     StatusBar,
     ScrollView,
-    Dimensions
+    Dimensions,
 }
     from 'react-native';
 
@@ -16,13 +16,35 @@ import {connect} from "react-redux";
 import {getAccount} from '../Services/Axios/account';
 
 class Account extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            isLogin:true,
+        };
+      }
+    
+      getAccountApi() {
+        this.props.dispatch(getAccount(this.props.account.token))
+      }
+
     componentDidMount() {
         this.getAccountApi();
+        this.state.isLogin == false ? this.props.navigation.navigate('AccountNotLoginScreen'):null;
+
+        this.subs = [
+            this.props.navigation.addListener('willFocus', () => {
+                this.state.isLogin == false ? this.props.navigation.navigate('AccountNotLoginScreen'):null;
+            })
+        ]
     }
-    getAccountApi() {
-        this.props.dispatch(getAccount(this.props.account.token))
+    componentWillUnmount() {
+        this.subs.forEach(sub => {
+            sub.remove()
+        })
     }
     render() {
+        
         return (
             <View>
                 <StatusBar backgroundColor="#FFF" barStyle="dark-content" />

@@ -33,7 +33,7 @@ class RegisterModal extends Component {
     }
 
     register() {
-
+        this.props.navigation.navigate('SmsOTP', this.state);
         let state = this.state;
         if (state.name == '' || state.noHp == '' || state.jk == '' || state.username == '' || state.password1 == '' || this.state.checked == false) {
             Alert.alert('Alert', 'lengkapi form kembali')
