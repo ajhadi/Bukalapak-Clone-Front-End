@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: 15,
         backgroundColor: '#FFF',
-        marginBottom: 10,
+        marginBottom: 75,
         height: 270
     },
     image: {
