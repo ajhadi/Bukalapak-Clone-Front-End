@@ -125,7 +125,7 @@ export default class ScrollableHeader extends Component {
                   <Text style={{fontSize:16, color:'#000', fontWeight:'500'}}>Pelapak</Text>
 
                   <View style={{ alignItems:'center', marginTop:10,flexDirection:'row'}}>
-                    <View style={{ borderWidth:1, borderColor:'#999', borderRadius:25}}>
+                    <View style={{ borderWidth:1, borderColor:'#F3F3F3', borderRadius:25}}>
                       <Image style={{width:50,height:50, borderRadius:25}} source={require('../Assets/Images/ic_launcher.png')}/>
                     </View>
                     <View style={{marginLeft:10}}>
@@ -169,10 +169,10 @@ export default class ScrollableHeader extends Component {
                 source={require('../Assets/DummyData/Image/air-jordan-7-retro-sp-shoe.jpg')}
             />
             <View style={styles.bar}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                     <Image source={require('../Assets/Images/Icons/h5_title_bar_back_btn.png')} style={{width:25,height:25,margin:10}}/>
                 </TouchableOpacity>
-                <Text numberOfLines={1} style={styles.title}>Air jordan 7 Retro SP Shoea</Text>
+                <Text numberOfLines={1} style={styles.title}>Air jordan 7 Retro SP Shoe</Text>
                 <TouchableOpacity>
                     <Image source={require('../Assets/Images/Icons/ico_cart.png')} style={{ opacity:0.7,width:20,height:20,marginLeft:15,marginRight:20}}/>
                 </TouchableOpacity>

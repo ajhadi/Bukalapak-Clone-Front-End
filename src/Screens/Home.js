@@ -25,7 +25,7 @@ export default class Home extends Component {
     render(){
         return(
             <View>
-            <TopBar/>
+            <TopBar navigation={this.props.navigation}/>
                 <ScrollView style={styles.container}>
                     <MainMenu navigation={this.props.navigation}/>
                     <LoopCarousel/>

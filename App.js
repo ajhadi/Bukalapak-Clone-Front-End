@@ -29,6 +29,7 @@ import AccountScreen from './src/Screens/Account';                       //If Lo
 // import ProductListScreen from './src/Screens/ProductList';            //Display when search product 
 import WishlistScreen from './src/Screens/Wishlist';
 import ProductDetail from './src/Screens/ProductDetail';
+import CartScreen from './src/Screens/Cart';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
@@ -115,6 +116,12 @@ const StackNavigator = createStackNavigator({
   },
   ProductDetail: {
     screen: ProductDetail,
+    navigationOptions: ({navigation}) => ({
+      header:(null)
+    }),
+  },
+  Cart: {
+    screen: CartScreen,
     navigationOptions: ({navigation}) => ({
       header:(null)
     }),

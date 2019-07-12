@@ -38,7 +38,7 @@ class TopBar extends Component {
                     <TouchableOpacity style={styles.iconFill}>
                         <Image source={require('../../Assets/Images/Icons/ico_comment_minor.png')} style={styles.barIcon}/>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.iconFill}>
+                    <TouchableOpacity onPress={()=> this.props.navigation.navigate('Cart')} style={styles.iconFill}>
                         <Image source={require('../../Assets/Images/Icons/ico_cart.png')} style={styles.barIcon}/>
                     </TouchableOpacity>
                 </View>
@@ -49,7 +49,6 @@ class TopBar extends Component {
 
     render() {
         return(
-            this.props.screen == 'Home'     ? this.HomeNavigation()     :
             this.HomeNavigation()
         )
     }
@@ -60,6 +59,7 @@ export default TopBar;
 const styles = StyleSheet.create({
     headerContainer:{
         height:60,
+        flexDirection:'row',
         backgroundColor:'#FFF',
         shadowColor: "#000",
         shadowOffset: {
