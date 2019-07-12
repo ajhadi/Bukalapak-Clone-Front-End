@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, Image, FlatList, StatusBar, TouchableOpacity } from 'react-native';
 
-// Dummy untuk testing
 import { connect } from 'react-redux';
 import { getProducts } from '../Services/Axios/products';
 
@@ -25,7 +24,7 @@ class ProductList extends Component {
                 <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
                 <FlatList
                     showsVerticalScrollIndicator={false}
-                    data={this.getData()}    // Dummy untuk testing
+                    data={this.getData()}
                     numColumns={2}
                     renderItem={({item}) => 
                         <TouchableOpacity style={styles.card}>

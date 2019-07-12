@@ -92,11 +92,11 @@ class CategoryMenu extends Component {
                                     <TouchableOpacity
                                         onPress={() => Alert.alert('Alert', data[0].title)}
                                     >
-                                        <Image style={{height: 90, width: 120, borderRadius: 10, margin: 5}}
+                                        <Image style={{height: 90, width: 120, borderRadius: 5, margin: 5}}
                                                source={data[0].image}/>
                                     </TouchableOpacity>
                                     <TouchableOpacity>
-                                        <Image style={{height: 90, width: 120, borderRadius: 10, margin: 5}}
+                                        <Image style={{height: 90, width: 120, borderRadius: 5, margin: 5}}
                                                source={data[1].image}/>
                                     </TouchableOpacity>
                                 </View>

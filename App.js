@@ -38,7 +38,7 @@ import TopBar from './src/Components/Navigation/TopBar';
 const TabNavigator = createBottomTabNavigator(
     {
         Home: {
-            screen: LoginModal,
+            screen: HomeScreen,
             navigationOptions: ({navigation}) => ({
                 title: 'Home',
                 tabBarIcon: ({focused}) => (
