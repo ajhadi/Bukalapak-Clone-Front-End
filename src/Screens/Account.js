@@ -3,10 +3,11 @@ import {
     Text,
     View,
     StyleSheet,
-    TouchableOpacity,
+    TouchableOpacity, 
     Image,
     StatusBar,
-    ScrollView, Modal
+    ScrollView,
+    Modal
 }
     from 'react-native';
 
@@ -91,7 +92,6 @@ class Account extends Component {
                     >
                         <AccountNotLogin/>
                     </Modal>*/}
-
                 </ScrollView>
             </View>
         );

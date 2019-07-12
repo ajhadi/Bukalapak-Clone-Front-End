@@ -24,21 +24,16 @@ import BukaMallScreen from './src/Screens/BukaMall';
 import TransactionScreen from './src/Screens/Transaction';
 import AccountScreen from './src/Screens/Account';                       //If Login
 // import AccountNotLoginScreen from './src/Screens/AccountNotLogin';    //If not login
-import LoginModal from './src/Screens/LoginModal';                    //Not login and select Login
-import RegisterModal from './src/Screens/RegisterModal';              //Not login and select register
+// import LoginModal from './src/Screens/LoginModal';                    //Not login and select Login
+// import RegisterModal from './src/Screens/RegisterModal';              //Not login and select register
 // import ProductListScreen from './src/Screens/ProductList';            //Display when search product 
 import WishlistScreen from './src/Screens/Wishlist';
 import ProductDetail from './src/Screens/ProductDetail';
+import CartScreen from './src/Screens/Cart';
+import EditProfileScreen from './src/Screens/EditProfile';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
-
-// Pengetesan Component
-// import ProductList from './src/Components/Product/ProductList';
-//  import TransactionTabs from './src/Components/Product/TransactionTabs';
-// import AccountPopup from './src/Screens/AccountPopup';
-// import LoginPopup from './src/Screens/LoginPopup';
-// import RegisterPopup from './src/Screens/RegisterPopup';
 
 const TabNavigator = createBottomTabNavigator(
     {
@@ -52,6 +47,13 @@ const TabNavigator = createBottomTabNavigator(
                                source={require('./src/Assets/Images/Icons/Nav/ic_homenav_red.png')}/> :
                         <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_homenav.png')}/>
                 ),
+                tabBarOptions: {
+                    activeTintColor: '#D71149',
+                    style: {
+                        paddingVertical: 6,
+                    },
+                    keyboardHidesTabBar: true,
+                }
             }),
         },
         Discover: {
@@ -65,6 +67,13 @@ const TabNavigator = createBottomTabNavigator(
                         <Image style={styles.icon}
                                source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')}/>
                 ),
+                tabBarOptions: {
+                    activeTintColor: '#D71149',
+                    style: {
+                        paddingVertical: 6,
+                    },
+                    keyboardHidesTabBar: true,
+                }
             },
         },
         BukaMall: {
@@ -78,6 +87,13 @@ const TabNavigator = createBottomTabNavigator(
                         <Image style={styles.icon}
                                source={require('./src/Assets/Images/Icons/Nav/ic_bukamall_nav.png')}/>
                 ),
+                tabBarOptions: {
+                    activeTintColor: '#D71149',
+                    style: {
+                        paddingVertical: 6,
+                    },
+                    keyboardHidesTabBar: true,
+                }
             },
         },
         Transaction: {
@@ -90,10 +106,17 @@ const TabNavigator = createBottomTabNavigator(
                                source={require('./src/Assets/Images/Icons/Nav/ic_trans_nav_red.png')}/> :
                         <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_trans_nav.png')}/>
                 ),
+                tabBarOptions: {
+                    activeTintColor: '#D71149',
+                    style: {
+                        paddingVertical: 6,
+                    },
+                    keyboardHidesTabBar: true,
+                }
             },
         },
         Account: {
-            screen: LoginModal,
+            screen: AccountScreen,
             navigationOptions: {
                 title: 'Account',
                 tabBarIcon: ({focused}) => (
@@ -103,6 +126,13 @@ const TabNavigator = createBottomTabNavigator(
                         <Image style={styles.icon}
                                source={require('./src/Assets/Images/Icons/Nav/ic_account_nav.png')}/>
                 ),
+                tabBarOptions: {
+                    activeTintColor: '#D71149',
+                    style: {
+                        paddingVertical: 6,
+                    },
+                    keyboardHidesTabBar: true,
+                }
             },
         },
     }
@@ -115,10 +145,34 @@ const StackNavigator = createStackNavigator({
             header: (null),
         })
     },
+    Account: {
+        screen: AccountScreen,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
     Wishlist: {
         screen: WishlistScreen,
         navigationOptions: ({navigation}) => ({
             header: (<TopBar navigation={navigation} screen={'Home'}/>)
+        }),
+    },
+    ProductDetail: {
+        screen: ProductDetail,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
+    Cart: {
+        screen: CartScreen,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
+    EditProfile: {
+        screen: EditProfileScreen,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
         }),
     },
     ProductDetail: {
@@ -147,7 +201,6 @@ export default class App extends Component {
         )
     }
 }
-
 
 const styles = StyleSheet.create({
     icon: {
