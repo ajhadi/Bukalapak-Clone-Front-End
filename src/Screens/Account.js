@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
-import { 
-    Text, 
-    View, 
-    StyleSheet, 
-    TouchableOpacity, 
+import {
+    Text,
+    View,
+    StyleSheet,
+    TouchableOpacity,
     Image,
     StatusBar,
-    ScrollView } 
-from 'react-native';
+    ScrollView, Modal
+}
+    from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
+import AccountNotLogin from "./AccountNotLogin";
 
 class Account extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            modalVisible: true
+        }
+    }
     render() {
         return (
             <View>
@@ -75,6 +83,15 @@ class Account extends Component {
                         </View>
                     </View>
                     </LinearGradient>
+                    {/*
+                    <Modal
+                        animationType={"slide"}
+                        visible={this.state.modalVisible}
+                        onRequestClose={() => console.log("keluar")}
+                    >
+                        <AccountNotLogin/>
+                    </Modal>*/}
+
                 </ScrollView>
             </View>
         );

@@ -131,13 +131,18 @@ const StackNavigator = createStackNavigator({
 
 const AppContainer = createAppContainer(StackNavigator);
 import {Provider} from 'react-redux';
-import store from './src/Services/Redux/store';
+import configStore from './src/Services/Redux/store';
+import {PersistGate} from "redux-persist/integration/react";
+
+const {persistor, store} = configStore();
 
 export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <AppContainer/>
+                <PersistGate loading={null} persistor={persistor}>
+                    <AppContainer/>
+                </PersistGate>
             </Provider>
         )
     }

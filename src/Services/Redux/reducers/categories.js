@@ -1,38 +1,34 @@
 const initialState = {
     data: [],
     isLoading: false,
-    token:'',
-    error:false,
-    isLogin: false,
+    error: false,
 };
 
 export default account = (state = initialState, action) => {
     switch (action.type) {
 
-        //LOGIN
-        case 'POST_LOGIN_PENDING': {
+        //GET_CATEGORIES
+        case 'GET_CATEGORIES_PENDING': {
             return {
                 ...state,
-                error:true,
+                error: true,
                 isLoading: true
             }
 
         }
-        case 'POST_LOGIN_REJECTED': {
+        case 'GET_CATEGORIES_REJECTED': {
             return {
                 ...state,
-                error:true,
+                error: true,
                 isLoading: false
             }
 
         }
-        case 'POST_LOGIN_FULFILLED': {
+        case 'GET_CATEGORIES_FULFILLED': {
             return {
                 ...state,
-                error:false,
-                data:action.payload.data,
-                token:action.payload.headers["x-auth-token"],
-                isLogin: true,
+                error: false,
+                data: action.payload.data.value.data,
                 isLoading: false
             }
 

@@ -1,63 +1,127 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
     View,
     Text,
     TouchableOpacity,
     StyleSheet,
     Image,
-    ScrollView
+    ScrollView, ListView, Alert
 }
-from 'react-native';
+    from 'react-native';
+import {getCategories} from "../../Services/Axios/categories";
+import {connect} from "react-redux";
 
-export default class CategoryMenu extends Component {
-    images = [
-        {uri: 'https://cdn.pixabay.com/photo/2017/05/19/07/34/teacup-2325722__340.jpg'},
-        {uri: 'https://cdn.pixabay.com/photo/2017/05/02/22/43/mushroom-2279558__340.jpg'},
-        {uri: 'https://cdn.pixabay.com/photo/2017/05/18/21/54/tower-bridge-2324875__340.jpg'},
-        {uri: 'https://cdn.pixabay.com/photo/2017/05/16/21/24/gorilla-2318998__340.jpg'},
-    ]
-    render(){
-        const { images } = this;
-        return(
+class CategoryMenu extends Component {
+
+    images2 = [
+        [
+            {
+                image: require('../../Assets/Images/Category/auto.jpg'),
+                titile: 'auto'
+            },
+
+            {
+                image: require('../../Assets/Images/Category/baby-care.jpg'),
+                titile: 'care'
+            },
+        ],
+        [
+            {
+                image: require('../../Assets/Images/Category/beauty.jpg'),
+                titile: 'auto'
+            },
+
+            {
+                image: require('../../Assets/Images/Category/bicycle.jpg'),
+                titile: 'care'
+            },
+
+
+        ],
+        [
+            {
+                image: require('../../Assets/Images/Category/camera.jpg'),
+                title: 'auto'
+            },
+
+            {
+                image: require('../../Assets/Images/Category/computer.jpg'),
+                title: 'care'
+            },
+
+        ],
+        [
+            {
+                image: require('../../Assets/Images/Category/electronic.jpg'),
+                title: 'auto'
+            },
+
+            {
+                image: require('../../Assets/Images/Category/fashion-kid.jpg'),
+                title: 'care'
+            },
+        ]
+    ];
+
+    getApiCategories() {
+        this.props.dispatch(getCategories())
+    }
+
+    componentDidMount() {
+        this.getApiCategories()
+    }
+
+    render() {
+        return (
             <View style={styles.container}>
-                <View style={{flex:1,flexDirection:'row'}}>
-                    <Text style={{margin:15,fontSize:16,fontWeight:'bold'}}>Kategori Barang</Text> 
+                <View style={{flex: 1, flexDirection: 'row'}}>
+                    <Text style={{margin: 15, fontSize: 16, fontWeight: 'bold'}}>Kategori Barang</Text>
                     <TouchableOpacity>
-                        <Text style={{fontSize:13,left:110,margin:15,color:'red'}}>Lihat semua</Text> 
+                        <Text style={{fontSize: 13, left: 110, margin: 15, color: 'red'}}>Lihat semua</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{flex:4}}>
+                <View style={{flex: 4}}>
                     <ScrollView
                         horizontal
                         pagingEnabled
                         showsHorizontalScrollIndicator={false}
-                    >   
-                        <View style={{flexDirection:'row',marginLeft:10,marginRight:10}}>
-                            {/*Fix error key */}
-                        {images.map((image,index) => (
-                            <View key={index}>
-                                <TouchableOpacity>
-                                    <Image style={{height:90,width:120,borderRadius:10,margin:5}} source={image} />
-                                </TouchableOpacity>
-                                <TouchableOpacity>
-                                    <Image style={{height:90,width:120,borderRadius:10,margin:5}} source={image} />
-                                </TouchableOpacity>
-                            </View>    
-                        ))}
+                    >
+                        <View style={{flexDirection: 'row', marginLeft: 10, marginRight: 10, numColumns: 2, flex: 1}}>
+                            {this.images2.map((data, index) => (
+                                <View key={index}>
+                                    <TouchableOpacity
+                                        onPress={() => Alert.alert('Alert', data[0].title)}
+                                    >
+                                        <Image style={{height: 90, width: 120, borderRadius: 10, margin: 5}}
+                                               source={data[0].image}/>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity>
+                                        <Image style={{height: 90, width: 120, borderRadius: 10, margin: 5}}
+                                               source={data[1].image}/>
+                                    </TouchableOpacity>
+                                </View>
+                            ))}
                         </View>
                     </ScrollView>
                 </View>
-            </View >
+            </View>
         )
     }
 }
+
+const mapsStageToProps = (state) => {
+    return {
+        categories: state.categories
+    }
+};
+export default connect(mapsStageToProps)(CategoryMenu);
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        marginTop:15,
-        backgroundColor:'#FFF',
-        marginBottom:10,
-        height:270
+    container: {
+        flex: 1,
+        marginTop: 15,
+        backgroundColor: '#FFF',
+        marginBottom: 10,
+        height: 270
     },
     image: {
         height: 145,

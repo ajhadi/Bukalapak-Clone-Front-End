@@ -1,8 +1,7 @@
-import {combineReducers} from 'redux';
 import account from './account';
+import categories from './categories';
 
-const appReducers = combineReducers({
-    account
-});
-
-export default appReducers;
+export default {
+    account,
+    categories
+};
