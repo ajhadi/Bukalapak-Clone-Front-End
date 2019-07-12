@@ -71,7 +71,7 @@ export default class TransactionTabs extends Component {
                 </View>
             </View>
             <TouchableOpacity>
-                <View style={{backgroundColor:'#fefefe',marginVertical:15,marginHorizontal:8,height:87,borderWidth:1,borderColor:'#ddd',flexDirection:'row',padding:5}}>
+                <View style={{backgroundColor:'#fefefe',marginTop:15,marginHorizontal:8,height:87,borderWidth:1,borderColor:'#ddd',flexDirection:'row',padding:5}}>
                     <View style={{flex:1,padding:2}}>
                         <Image source={require('../../Assets/Images/Category/phone.jpg')} style={{width:61,height:65}}/>   
                     </View>
@@ -85,6 +85,9 @@ export default class TransactionTabs extends Component {
                     </View>
                 </View>
             </TouchableOpacity>
+            <View style={{flex:1,justifyContent:'center',alignItems:'center',marginTop:15}}>
+                <Image source={require('../../Assets/Images/bl_icon_gray_260_41_10.png')}/> 
+            </View>
         </ScrollView>,
         <ScrollView>
         <View style={{flexDirection:'row',backgroundColor:'#fefefe',width}}>
@@ -100,7 +103,7 @@ export default class TransactionTabs extends Component {
             </View>
         </View>
         <TouchableOpacity>
-            <View style={{backgroundColor:'#fefefe',marginVertical:15,marginHorizontal:8,height:78,borderWidth:1,borderColor:'#ddd',flexDirection:'row',padding:5}}>
+            <View style={{backgroundColor:'#fefefe',marginTop:15,marginHorizontal:8,height:78,borderWidth:1,borderColor:'#ddd',flexDirection:'row',padding:5}}>
                 <View style={{flex:1,padding:2}}>
                     <Image source={require('../../Assets/Images/Category/phone.jpg')} style={{width:59,height:61}}/>   
                 </View>
@@ -113,6 +116,9 @@ export default class TransactionTabs extends Component {
                 </View>
             </View>
         </TouchableOpacity>
+        <View style={{flex:1,justifyContent:'center',alignItems:'center',marginTop:15}}>
+                <Image source={require('../../Assets/Images/bl_icon_gray_260_41_10.png')}/> 
+        </View>
     </ScrollView>
     ]
     get pagination () {
