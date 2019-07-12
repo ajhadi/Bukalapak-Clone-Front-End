@@ -31,6 +31,7 @@ import WishlistScreen from './src/Screens/Wishlist';
 import ProductDetail from './src/Screens/ProductDetail';
 import CartScreen from './src/Screens/Cart';
 import EditProfileScreen from './src/Screens/EditProfile';
+import CheckoutScreen from './src/Screens/Checkout';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
@@ -177,6 +178,12 @@ const StackNavigator = createStackNavigator({
     },
     ProductDetail: {
         screen: ProductDetail,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
+    Checkout: {
+        screen: CheckoutScreen,
         navigationOptions: ({navigation}) => ({
             header: (null)
         }),

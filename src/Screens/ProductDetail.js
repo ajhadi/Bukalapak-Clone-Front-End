@@ -95,7 +95,7 @@ export default class ScrollableHeader extends Component {
                             <Text style={{ color:'#111', fontSize:15, fontWeight:'500', flex:1}}>
                               Informasi Barang
                             </Text>
-                            <Text style={{padding:4,color:'#FFF', fontSize:11, backgroundColor:'red', borderRadius:15}}>
+                            <Text style={{padding:4,color:'#FFF', fontSize:11, backgroundColor:'#D71149', borderRadius:15}}>
                               Baru
                             </Text>
                           </View>
@@ -116,7 +116,7 @@ export default class ScrollableHeader extends Component {
                             - awas barang mudah terbakar
                           </Text>
                           <TouchableOpacity style={{marginTop:10,flex:1, alignItems:'center', paddingTop:10}}>
-                            <Text style={{color:'red', fontSize:15, fontWeight:'300'}}>Selengkapnya</Text>
+                            <Text style={{color:'#D71149', fontSize:15, fontWeight:'300'}}>Selengkapnya</Text>
                           </TouchableOpacity>
                   </View>
                 </View>
@@ -155,7 +155,7 @@ export default class ScrollableHeader extends Component {
           <TouchableOpacity style={{width:35, marginRight:10, borderRadius:3, alignItems:'center', justifyContent:'center', height:35,backgroundColor:'#F1F1F1'}}>
             <Image style={{width:20, height:20}} source={require('../Assets/Images/Icons/ic_addtocart.png')}/>
           </TouchableOpacity>
-          <TouchableOpacity style={{flex:1, borderRadius:5, alignItems:'center', justifyContent:'center', backgroundColor:'red'}}>
+          <TouchableOpacity style={{flex:1, borderRadius:5, alignItems:'center', justifyContent:'center', backgroundColor:'#D71149'}}>
             <Text style={{color:'#FFF'}}>Beli Sekarang</Text>
           </TouchableOpacity>
         </View>

@@ -77,7 +77,7 @@ class CategoryMenu extends Component {
                 <View style={{flex: 1, flexDirection: 'row'}}>
                     <Text style={{margin: 15, fontSize: 16, fontWeight: 'bold'}}>Kategori Barang</Text>
                     <TouchableOpacity>
-                        <Text style={{fontSize: 13, left: 110, margin: 15, color: 'red'}}>Lihat semua</Text>
+                        <Text style={{fontSize: 13, left: 110, margin: 15, color: '#D71149'}}>Lihat semua</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{flex: 4}}>

@@ -55,7 +55,7 @@ class Cart extends Component {
                         <Text>(0/4)</Text>
                     </View>
                     <TouchableOpacity style={{margin: 10}}>
-                        <Text style={{color: 'red'}}>Hapus</Text>
+                        <Text style={{color: '#D71149'}}>Hapus</Text>
                     </TouchableOpacity>
                 </View>
                 {/********************************************************************************************/}
@@ -132,7 +132,7 @@ class Cart extends Component {
                                 </View>
                             </View>
                             <View style={{flex: 1, alignItems: 'flex-end', marginRight: 10}}>
-                                <Image style={{justifyContent: 'flex-start', width: 50, height: 50}}
+                                <Image style={{justifyContent: 'flex-start', width: 50, borderRadius:3,height: 50}}
                                        source={require('../Assets/DummyData/Image/air-jordan-7-retro-sp-shoe.jpg')}/>
                                 <TouchableOpacity onPress={() => alert('Delete Cuy ?')}><Image
                                     style={{marginTop: 15, marginBottom: 5, width: 28, height: 28, opacity: 0.5}}
@@ -157,7 +157,7 @@ class Cart extends Component {
                             </View>
                             <View>
                                 <TouchableOpacity style={{
-                                    backgroundColor: 'red',
+                                    backgroundColor: '#D71149',
                                     borderRadius: 3,
                                     marginRight: 20,
                                     paddingLeft: 10,
@@ -267,7 +267,7 @@ class Cart extends Component {
                             </View>
                             <View>
                                 <TouchableOpacity style={{
-                                    backgroundColor: 'red',
+                                    backgroundColor: '#D71149',
                                     borderRadius: 3,
                                     marginRight: 20,
                                     paddingLeft: 10,
@@ -377,7 +377,7 @@ class Cart extends Component {
                             </View>
                             <View>
                                 <TouchableOpacity style={{
-                                    backgroundColor: 'red',
+                                    backgroundColor: '#D71149',
                                     borderRadius: 3,
                                     marginRight: 20,
                                     paddingLeft: 10,
@@ -398,8 +398,10 @@ class Cart extends Component {
                         <Text style={{fontWeight: '400', color: '#000'}}>Rp 2000000</Text>
                         <Text style={{fontSize: 10}}>Belum termasuk ongkir</Text>
                     </View>
-                    <TouchableOpacity style={{
-                        backgroundColor: 'red',
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('Checkout')}
+                        style={{
+                        backgroundColor: '#D71149',
                         alignItems: 'center',
                         padding: 10,
                         justifyContent: 'center',
