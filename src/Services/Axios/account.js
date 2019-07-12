@@ -12,3 +12,16 @@ export const postLogin = (username, password) => {
         payload:connect(SERVER_API+'login','POST',data)
     };
 };
+
+export const getAccount = (token) => {
+    let header = {
+        'Content-Type': 'application/json',
+        'x-auth-token': token
+    };
+
+
+    return {
+        type: 'GET_ACCOUNT',
+        payload: connect(SERVER_API + 'users', 'GET', '', header)
+    };
+};

@@ -38,7 +38,7 @@ import TopBar from './src/Components/Navigation/TopBar';
 const TabNavigator = createBottomTabNavigator(
     {
         Home: {
-            screen: HomeScreen,
+            screen: LoginModal,
             navigationOptions: ({navigation}) => ({
                 title: 'Home',
                 tabBarIcon: ({focused}) => (
@@ -175,18 +175,14 @@ const StackNavigator = createStackNavigator({
             header: (null)
         }),
     },
-    ProductDetail: {
-        screen: ProductDetail,
-        navigationOptions: ({navigation}) => ({
-            header: (null)
-        }),
-    },
 });
 
 const AppContainer = createAppContainer(StackNavigator);
 import {Provider} from 'react-redux';
 import configStore from './src/Services/Redux/store';
 import {PersistGate} from "redux-persist/integration/react";
+import LoginModal from "./src/Screens/LoginModal";
+import AccountNotLogin from "./src/Screens/AccountNotLogin";
 
 const {persistor, store} = configStore();
 

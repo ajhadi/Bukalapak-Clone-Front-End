@@ -12,8 +12,10 @@ import {
     from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
+import {connect} from "react-redux";
 
 class Account extends Component {
+
     render() {
         return (
             <View>
@@ -40,6 +42,7 @@ class Account extends Component {
                             </View>
                         </View>
 
+
                         <View style={styles.profile}>
                             <View style={{marginTop: -30, alignItems: 'center'}}>
                                 <TouchableOpacity>
@@ -47,7 +50,8 @@ class Account extends Component {
                                            source={require('../Assets/Images/Icons/avatar.png')}/>
                                 </TouchableOpacity>
                                 <View style={{flexDirection: 'row'}}>
-                                    <Text numberOfLines={1} style={styles.nameProfile}>Fadlan Fajar Ramdani</Text>
+                                    <Text numberOfLines={1}
+                                          style={styles.nameProfile}>{this.props.account.data.name || ''}</Text>
                                     <TouchableOpacity style={{justifyContent: 'center'}} onPress={() => {
                                         this.props.navigation.navigate('EditProfile')
                                     }}>
@@ -212,4 +216,10 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Account;
+const mapsStageToProps = (state) => {
+    return {
+        account: state.account
+    }
+};
+
+export default connect(mapsStageToProps)(Account);
