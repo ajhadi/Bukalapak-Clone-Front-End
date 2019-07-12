@@ -5,14 +5,6 @@ import { connect } from 'react-redux';
 import { getProducts } from '../Services/Axios/products';
 
 class ProductList extends Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-
-        };
-    }
-    
     getProductApi() {
         this.props.dispatch(getProducts());
     }
@@ -44,6 +36,7 @@ class ProductList extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar backgroundColor="#FFF" barStyle="dark-content"/>
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     data={this.getData()}
@@ -76,7 +69,6 @@ const styles = StyleSheet.create({
         backgroundColor:'#f3f3f3',
         marginLeft: 5,
         marginRight: 5,
-        flex:1
     },
     card: {
         width: 165,

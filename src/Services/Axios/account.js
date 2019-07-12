@@ -25,7 +25,6 @@ export const getAccount = (token) => {
         'x-auth-token': token
     };
 
-
     return {
         type: 'GET_ACCOUNT',
         payload: connect(SERVER_API + 'users', 'GET', '', header)

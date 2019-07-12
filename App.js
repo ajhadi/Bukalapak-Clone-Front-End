@@ -25,14 +25,13 @@ import TransactionScreen from './src/Screens/Transaction';
 import AccountScreen from './src/Screens/Account';                       //If Login
 import AccountNotLoginScreen from './src/Screens/AccountNotLogin';    //If not login
 // import LoginModal from './src/Screens/LoginModal';                    //Not login and select Login
-// import RegisterModal from './src/Screens/RegisterModal';              //Not login and select register
+import RegisterModal from './src/Screens/RegisterModal';              //Not login and select register
 // import ProductListScreen from './src/Screens/ProductList';            //Display when search product 
 import WishlistScreen from './src/Screens/Wishlist';
 import ProductDetail from './src/Screens/ProductDetail';
 import CartScreen from './src/Screens/Cart';
 import EditProfileScreen from './src/Screens/EditProfile';
 import CheckoutScreen from './src/Screens/Checkout';
-import SearchScreen from './src/Screens/Search';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
@@ -156,7 +155,7 @@ const StackNavigator = createStackNavigator({
     Wishlist: {
         screen: WishlistScreen,
         navigationOptions: ({navigation}) => ({
-            header: (null)
+            header: (<TopBar navigation={navigation} screen={'Home'}/>)
         }),
     },
     ProductDetail: {
@@ -183,8 +182,8 @@ const StackNavigator = createStackNavigator({
             header: (null)
         }),
     },
-    Search: {
-        screen: SearchScreen,
+    SmsOTP: {
+        screen: SmsOTP,
         navigationOptions: ({navigation}) => ({
             header: (null)
         }),
@@ -203,6 +202,7 @@ import configStore from './src/Services/Redux/store';
 import {PersistGate} from "redux-persist/integration/react";
 import LoginModal from "./src/Screens/LoginModal";
 import AccountNotLogin from "./src/Screens/AccountNotLogin";
+import SmsOTP from "./src/Screens/SmsOTP";
 
 const {persistor, store} = configStore();
 
