@@ -1,6 +1,6 @@
 /**
  * Bukalapak Clone Frontend
- * 
+ *
  *
  * @format
  * @flow
@@ -10,12 +10,12 @@ import React, {Component} from 'react';
 
 //Import Navigations
 import {
-  createStackNavigator,
-  createAppContainer,
-  createBottomTabNavigator
+    createStackNavigator,
+    createAppContainer,
+    createBottomTabNavigator
 } from 'react-navigation';
 
-import { Image, StyleSheet } from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 
 //Import Screens
 import HomeScreen from './src/Screens/Home';
@@ -34,106 +34,99 @@ import EditProfileScreen from './src/Screens/EditProfile';
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
 
-// Pengetesan Component
-// import ProductList from './src/Components/Product/ProductList';
-// import TransactionTabs from './src/Components/Product/TransactionTabs';
-// import AccountPopup from './src/Screens/AccountPopup';
-// import LoginPopup from './src/Screens/LoginPopup';
-// import RegisterPopup from './src/Screens/RegisterPopup';
-
 const TabNavigator = createBottomTabNavigator(
-  {
-    Home: {
-      screen: HomeScreen,
-      navigationOptions: ({navigation}) => ({
-        title: 'Home',
-        tabBarIcon: ({ focused }) => (
-          focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_homenav_red.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_homenav.png')} />
-        ),
-        tabBarOptions: {
-          activeTintColor: '#D71149',
-          style: {
-            paddingVertical: 6,
-          },
-          keyboardHidesTabBar: true,
-        }
-      }),
-    },
-    Discover: {
-      screen: DiscoverScreen,
-      navigationOptions: {
-        title: 'Discover',
-        tabBarIcon: ({ focused }) => (
-          focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')} />
-        ),
-        tabBarOptions: {
-          activeTintColor: '#D71149',
-          style: {
-            paddingVertical: 6,
-          },
-          keyboardHidesTabBar: true,
-        }
-      },
-    },
-    BukaMall: {
-      screen: BukaMallScreen,
-      navigationOptions: {
-        title: 'BukaMall',
-        tabBarIcon: ({ focused }) => (
-          focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_bukamall_nav_red.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_bukamall_nav.png')} />
-        ),
-        tabBarOptions: {
-          activeTintColor: '#D71149',
-          style: {
-            paddingVertical: 6,
-          },
-          keyboardHidesTabBar: true,
-        }
-      },
-    },
-    Transaction: {
-      screen: TransactionScreen,
-      navigationOptions: {
-        title: 'Transaction',
-        tabBarIcon: ({ focused }) => (
-          focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_trans_nav_red.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_trans_nav.png')} />
-        ),
-        tabBarOptions: {
-          activeTintColor: '#D71149',
-          style: {
-            paddingVertical: 6,
-          },
-          keyboardHidesTabBar: true,
-        }
-      },
-    },
-    Account: {
-      screen: AccountScreen,
-      navigationOptions: {
-        title: 'Account',
-        tabBarIcon: ({ focused }) => (
-          focused ?
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_account_nav_red.png')} /> :
-            <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_account_nav.png')} />
-        ),
-        tabBarOptions: {
-          activeTintColor: '#D71149',
-          style: {
-            paddingVertical: 6,
-          },
-          keyboardHidesTabBar: true,
-        }
-      },
-    },
-  }
+    {
+        Home: {
+            screen: HomeScreen,
+            navigationOptions: ({navigation}) => ({
+              title: 'Home',
+              tabBarIcon: ({ focused }) => (
+                focused ?
+                  <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_homenav_red.png')} /> :
+                  <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_homenav.png')} />
+              ),
+              tabBarOptions: {
+                activeTintColor: '#D71149',
+                style: {
+                  paddingVertical: 6,
+                },
+                keyboardHidesTabBar: true,
+              }
+            }),
+        },
+        Discover: {
+            screen: DiscoverScreen,
+            navigationOptions: {
+              title: 'Discover',
+              tabBarIcon: ({ focused }) => (
+                focused ?
+                  <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')} /> :
+                  <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')} />
+              ),
+              tabBarOptions: {
+                activeTintColor: '#D71149',
+                style: {
+                  paddingVertical: 6,
+                },
+                keyboardHidesTabBar: true,
+              }
+            },
+        },
+        BukaMall: {
+            screen: BukaMallScreen,
+            navigationOptions: {
+              title: 'BukaMall',
+              tabBarIcon: ({ focused }) => (
+                focused ?
+                  <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_bukamall_nav_red.png')} /> :
+                  <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_bukamall_nav.png')} />
+              ),
+              tabBarOptions: {
+                activeTintColor: '#D71149',
+                style: {
+                  paddingVertical: 6,
+                },
+                keyboardHidesTabBar: true,
+              }
+            },
+        },
+        Transaction: {
+            screen: TransactionScreen,
+            navigationOptions: {
+              title: 'Transaction',
+              tabBarIcon: ({ focused }) => (
+                focused ?
+                  <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_trans_nav_red.png')} /> :
+                  <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_trans_nav.png')} />
+              ),
+              tabBarOptions: {
+                activeTintColor: '#D71149',
+                style: {
+                  paddingVertical: 6,
+                },
+                keyboardHidesTabBar: true,
+              }
+            },
+        },
+        Account: {
+            screen: AccountScreen,
+            navigationOptions: {
+              title: 'Account',
+              tabBarIcon: ({ focused }) => (
+                focused ?
+                  <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_account_nav_red.png')} /> :
+                  <Image style={styles.icon} source={require('./src/Assets/Images/Icons/Nav/ic_account_nav.png')} />
+              ),
+              tabBarOptions: {
+                activeTintColor: '#D71149',
+                style: {
+                  paddingVertical: 6,
+                },
+                keyboardHidesTabBar: true,
+              }
+            },
+        },
+    }
 );
 
 const StackNavigator = createStackNavigator({
@@ -167,24 +160,31 @@ const StackNavigator = createStackNavigator({
       header:(null)
     }),
   },
-  
+  ProductDetail: {
+    screen: ProductDetail,
+    navigationOptions: ({ navigation }) => ({
+      header: (null)
+    }),
+  },
 });
 
 const AppContainer = createAppContainer(StackNavigator);
+import {Provider} from 'react-redux';
+import store from './src/Services/Redux/store';
 
 export default class App extends Component {
-  render(){
-    return(
-        <AppContainer />
-        // <EditProfileScreen />
-    )
-  }
+    render() {
+        return (
+            <Provider store={store}>
+                <AppContainer/>
+            </Provider>
+        )
+    }
 }
 
-
 const styles = StyleSheet.create({
-  icon: {
-    width: 25,
-    height: 25,
-  }
+    icon: {
+        width: 25,
+        height: 25,
+    }
 });
