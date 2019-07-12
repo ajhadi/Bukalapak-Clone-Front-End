@@ -188,6 +188,12 @@ const StackNavigator = createStackNavigator({
             header: (null)
         }),
     },
+    RegisterModal: {
+        screen: RegisterModal,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
     AccountNotLoginScreen: {
         screen: AccountNotLoginScreen,
         navigationOptions: ({navigation}) => ({
