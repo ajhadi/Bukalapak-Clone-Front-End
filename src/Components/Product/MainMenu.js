@@ -19,19 +19,19 @@ export default class Menu extends Component{
             <View>
                 <View style={styles.container}>
                     <TouchableOpacity style={styles.menu}>
-                        <Image source={require('../../Assets/Images/ic_voucherku.png')} style={styles.icon}/>
-                        <Text style={styles.title}>VoucherKu</Text>
+                        <Image source={require('../../Assets/Images/Icons/ic_1.png')} style={styles.icon}/>
+                        <Text style={styles.title}>BukaMart</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu}>
-                        <Image source={require('../../Assets/Images/ic_voucherku.png')} style={styles.icon}/>
-                        <Text style={styles.title}>VoucherKu</Text>
+                        <Image source={require('../../Assets/Images/Icons/ic_2.png')} style={styles.icon}/>
+                        <Text style={styles.title}>Gratis Ongkir</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu}>
-                        <Image source={require('../../Assets/Images/ic_voucherku.png')} style={styles.icon}/>
+                        <Image source={require('../../Assets/Images/Icons/ic_3.png')} style={styles.icon}/>
                         <Text style={styles.title}>VoucherKu</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu} onPress={() => { this.props.navigation.navigate('Wishlist', this.props.data)}}>
-                        <Image source={require('../../Assets/Images/ic_voucherku.png')} style={styles.icon}/>
+                        <Image source={require('../../Assets/Images/Icons/ic_4.png')} style={styles.icon}/>
                         <Text style={styles.title}>Barang Favorite</Text>
                     </TouchableOpacity>
                 </View>

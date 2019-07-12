@@ -71,8 +71,7 @@ class AccountNotLogin extends Component {
                             <Image style={{
                                 height:100,
                                 width:100,
-                                backgroundColor:'#ff2742',
-                            }}/>
+                            }}source={require('../Assets/Images/Icons/ic_a.jpg') }/>
                             <Text style={{
                                 fontSize:17,
                                 color:'#000000',
@@ -89,8 +88,7 @@ class AccountNotLogin extends Component {
                             <Image style={{
                                 height:100,
                                 width:100,
-                                backgroundColor:'#ff2742',
-                            }}/>
+                            }}source={require('../Assets/Images/Icons/ic_b.jpg') }/>
                             <Text style={{
                                 fontSize:17,
                                 color:'#000000',
@@ -107,8 +105,7 @@ class AccountNotLogin extends Component {
                             <Image style={{
                                 height:100,
                                 width:100,
-                                backgroundColor:'#ff2742',
-                            }}/>
+                            }}source={require('../Assets/Images/Icons/ic_c.jpg') }/>
                             <Text style={{
                                 fontSize:17,
                                 color:'#000000',
@@ -126,8 +123,7 @@ class AccountNotLogin extends Component {
                             <Image style={{
                                 height:100,
                                 width:100,
-                                backgroundColor:'#ff2742',
-                            }}/>
+                            }}source={require('../Assets/Images/Icons/ic_d.jpg') }/>
                             <Text style={{
                                 fontSize:17,
                                 color:'#000000',

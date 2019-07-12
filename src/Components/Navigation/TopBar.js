@@ -22,9 +22,9 @@ class TopBar extends Component {
         return (
             <View style={styles.headerContainer}>
 
-                <TouchableOpacity style={styles.searchButton}>
+                <TouchableOpacity onPress={()=> this.props.navigation.navigate('Search')} style={styles.searchButton}>
                     <Image source={require('../../Assets/Images/Icons/ico_search.png')} style={{opacity:0.6,height:20,width:20,}}/>
-                    <Image source={require('../../Assets/Images/bl_icon_gray_260_41_10.png')} style={{height: 14}}/>
+                    <Image source={require('../../Assets/Images/Icons/Splash/bl_gray.png')} style={{marginLeft:10,height: 20, width:90}}/>
                 </TouchableOpacity>
 
                 <View style={styles.rightIcons}>
