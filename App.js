@@ -31,6 +31,7 @@ import WishlistScreen from './src/Screens/Wishlist';
 import ProductDetail from './src/Screens/ProductDetail';
 import CartScreen from './src/Screens/Cart';
 import EditProfileScreen from './src/Screens/EditProfile';
+import CheckoutScreen from './src/Screens/Checkout';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
@@ -38,7 +39,7 @@ import TopBar from './src/Components/Navigation/TopBar';
 const TabNavigator = createBottomTabNavigator(
     {
         Home: {
-            screen: LoginModal,
+            screen: HomeScreen,
             navigationOptions: ({navigation}) => ({
                 title: 'Home',
                 tabBarIcon: ({focused}) => (
@@ -63,9 +64,9 @@ const TabNavigator = createBottomTabNavigator(
                 tabBarIcon: ({focused}) => (
                     focused ?
                         <Image style={styles.icon}
-                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')}/> :
+                            source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')}/> :
                         <Image style={styles.icon}
-                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')}/>
+                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')}/>
                 ),
                 tabBarOptions: {
                     activeTintColor: '#D71149',
@@ -171,6 +172,18 @@ const StackNavigator = createStackNavigator({
     },
     EditProfile: {
         screen: EditProfileScreen,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
+    ProductDetail: {
+        screen: ProductDetail,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
+    Checkout: {
+        screen: CheckoutScreen,
         navigationOptions: ({navigation}) => ({
             header: (null)
         }),

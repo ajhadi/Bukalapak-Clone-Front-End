@@ -77,7 +77,7 @@ class CategoryMenu extends Component {
                 <View style={{flex: 1, flexDirection: 'row'}}>
                     <Text style={{margin: 15, fontSize: 16, fontWeight: 'bold'}}>Kategori Barang</Text>
                     <TouchableOpacity>
-                        <Text style={{fontSize: 13, left: 110, margin: 15, color: 'red'}}>Lihat semua</Text>
+                        <Text style={{fontSize: 13, left: 110, margin: 15, color: '#D71149'}}>Lihat semua</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{flex: 4}}>
@@ -92,11 +92,11 @@ class CategoryMenu extends Component {
                                     <TouchableOpacity
                                         onPress={() => Alert.alert('Alert', data[0].title)}
                                     >
-                                        <Image style={{height: 90, width: 120, borderRadius: 10, margin: 5}}
+                                        <Image style={{height: 90, width: 120, borderRadius: 5, margin: 5}}
                                                source={data[0].image}/>
                                     </TouchableOpacity>
                                     <TouchableOpacity>
-                                        <Image style={{height: 90, width: 120, borderRadius: 10, margin: 5}}
+                                        <Image style={{height: 90, width: 120, borderRadius: 5, margin: 5}}
                                                source={data[1].image}/>
                                     </TouchableOpacity>
                                 </View>
