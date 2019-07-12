@@ -163,21 +163,21 @@ class Checkout extends Component {
                     </View>
                 </ScrollView>
                 {/********************************************************************************************/}
-                <View style={{backgroundColor: '#FFF', alignItems: 'center', padding: 15, flexDirection: 'row'}}>
-                    <View style={{flex: 1}}>
-                        <Text style={{fontSize: 12, fontWeight: '300'}}>TOTAL BELANJA</Text>
+                <View style={{backgroundColor: '#FFF', alignItems: 'center', padding: 15, height:100, borderTopWidth:1, borderColor:'#F5F5F5'}}>
+                    <View style={{alignItems:'center', flexDirection:'row', marginBottom:10}}>
+                        <Text style={{flex: 1, fontSize: 12, fontWeight: '400'}}>Total Pembayaran</Text>
                         <Text style={{fontWeight: '400', color: '#000'}}>Rp 2000000</Text>
-                        <Text style={{fontSize: 10}}>Belum termasuk ongkir</Text>
                     </View>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Checkout')}
                         style={{
                         backgroundColor: '#D71149',
                         alignItems: 'center',
-                        padding: 10,
+                        padding: 20,
                         justifyContent: 'center',
                         height: 35,
-                        borderRadius: 3
+                        borderRadius: 3,
+                        width:'100%'
                     }}><Text style={{fontSize: 14, fontWeight: '400', color: '#FFF'}}> Bayar </Text></TouchableOpacity>
                 </View>
             </View>

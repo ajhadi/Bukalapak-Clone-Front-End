@@ -33,7 +33,7 @@ export default class FavoriteMenu extends Component {
                         <Text numberOfLines={1} style={styles.title}>Zakat</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{flex:1,flexDirection:'row',paddingHorizontal:15}}>
+                <View style={{flex:1,flexDirection:'row',paddingHorizontal:15, paddingBottom: 15}}>
                     <TouchableOpacity style={styles.menu}>
                         <Image source={require('../../Assets/Images/Menu/bukaquran.jpg')} style={styles.icon}/>
                         <Text numberOfLines={1} style={styles.title}>BukaQuran</Text>

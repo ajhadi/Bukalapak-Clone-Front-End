@@ -64,9 +64,9 @@ const TabNavigator = createBottomTabNavigator(
                 tabBarIcon: ({focused}) => (
                     focused ?
                         <Image style={styles.icon}
-                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')}/> :
+                            source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')}/> :
                         <Image style={styles.icon}
-                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')}/>
+                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')}/>
                 ),
                 tabBarOptions: {
                     activeTintColor: '#D71149',
@@ -194,6 +194,8 @@ const AppContainer = createAppContainer(StackNavigator);
 import {Provider} from 'react-redux';
 import configStore from './src/Services/Redux/store';
 import {PersistGate} from "redux-persist/integration/react";
+import LoginModal from "./src/Screens/LoginModal";
+import AccountNotLogin from "./src/Screens/AccountNotLogin";
 
 const {persistor, store} = configStore();
 
