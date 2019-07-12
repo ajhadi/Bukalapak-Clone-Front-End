@@ -32,26 +32,29 @@ class WishlistScreen extends Component {
 
     render() {
         return (
-            <ScrollView style={{ flex: 1, backgroundColor:'#F5F5F5'}}>
+            <ScrollView style={{flex: 1, backgroundColor: '#F5F5F5'}}>
                 <View style={styles.search}>
-                    <Image source={require('../Assets/Images/Icons/ico_search.png')} style={{opacity:0.5,margin:20,height:20,width:20,}}/>
+                    <Image source={require('../Assets/Images/Icons/ico_search.png')}
+                           style={{opacity: 0.5, margin: 20, height: 20, width: 20,}}/>
                     <TextInput placeholder={'Cari barang favorit...'} style={styles.searchInput}/>
-                    <TouchableOpacity style={styles.filterButton} onPress={()=> this.setModalVisibility(true)}><Text style={{alignSelf:'center'}}>Filter</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.filterButton} onPress={() => this.setModalVisibility(true)}><Text
+                        style={{alignSelf: 'center'}}>Filter</Text></TouchableOpacity>
                 </View>
                 <View>
-                    <Text style={{margin:5,opacity:0.9}}>Filter : {this.state.filter}</Text>
+                    <Text style={{margin: 5, opacity: 0.9}}>Filter : {this.state.filter}</Text>
                 </View>
                 <View style={styles.wishlist}>
                     <FlatList
-                    style={{}}
-                    data={this.state.products}
-                    keyExtractor={this._keyExtractor}
-                    numColumns='2'
-                    renderItem={({item}) => <WishlistProducts navigation={this.props.navigation} data={item}/>}
-                  />
-                <Modal transparent={true} visible={this.state._ModalVisible} onRequestClose={() => this.changeModalVisibility(false)}>
-                    <FilterModal setModalVisibility={this.setModalVisibility} />
-                </Modal>
+                        style={{}}
+                        data={this.state.products}
+                        keyExtractor={this._keyExtractor}
+                        numColumns='2'
+                        renderItem={({item}) => <WishlistProducts navigation={this.props.navigation} data={item}/>}
+                    />
+                    <Modal transparent={true} visible={this.state._ModalVisible}
+                           onRequestClose={() => this.changeModalVisibility(false)}>
+                        <FilterModal setModalVisibility={this.setModalVisibility}/>
+                    </Modal>
                 </View>
             </ScrollView>
         );

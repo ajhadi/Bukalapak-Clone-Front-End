@@ -93,6 +93,33 @@ export default account = (state = initialState, action) => {
             }
 
         }
+
+        case 'PATCH_ACCOUNT_PENDING': {
+            return {
+                ...state,
+                error: true,
+                isLoading: true
+            }
+
+        }
+        case 'PATCH_ACCOUNT_REJECTED': {
+            return {
+                ...state,
+                error: true,
+                isLoading: false
+            }
+
+        }
+        case 'PATCH_ACCOUNT_FULFILLED': {
+            return {
+                ...state,
+                error: false,
+                data: action.payload.data.value.data,
+                isLogin: true,
+                isLoading: false
+            }
+
+        }
         default:
             return state;
     }

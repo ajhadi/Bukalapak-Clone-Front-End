@@ -36,7 +36,7 @@ class ProductList extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
+                <StatusBar backgroundColor="#FFF" barStyle="dark-content"/>
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     data={this.getData()}

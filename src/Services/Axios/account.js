@@ -4,7 +4,7 @@ import {SERVER_API} from "../../Helper/config";
 export const postLogin = (username, password) => {
     let data = {
         username : username,
-        password: password
+        password: password,
     };
 
     return{
@@ -25,9 +25,20 @@ export const getAccount = (token) => {
         'x-auth-token': token
     };
 
-
     return {
         type: 'GET_ACCOUNT',
         payload: connect(SERVER_API + 'users', 'GET', '', header)
     };
 };
+
+export const updateAccount = (token, data) => {
+    let header = {
+        'Content-Type': 'application/json',
+        'x-auth-token': token
+    }
+
+    return {
+        type: 'UPDATE_ACCOUNT',
+        payload: connect(SERVER_API + 'users', 'PATCH', data, header)
+    }
+}

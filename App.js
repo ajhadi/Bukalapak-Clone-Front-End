@@ -32,7 +32,6 @@ import ProductDetail from './src/Screens/ProductDetail';
 import CartScreen from './src/Screens/Cart';
 import EditProfileScreen from './src/Screens/EditProfile';
 import CheckoutScreen from './src/Screens/Checkout';
-import SellProduct from './src/Screens/SellProduct';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
@@ -200,8 +199,7 @@ export default class App extends Component {
         return (
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
-                    {/* <AppContainer/> */}
-                    <SellProduct/>
+                    <AppContainer/>
                 </PersistGate>
             </Provider>
         )

@@ -7,12 +7,18 @@ import SimpleHeader from "../Components/Navigation/SimpleHeaderLeft";
 class SmsOTP extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            otp: 0
+        }
+
     }
 
-    // if (this.props.account.error){
-    // Alert.alert('Alert', 'Registrasi gagal')
-    // }
-    // //this.props.dispatch(postRegister(data));
+    cekOtp = (otp, data) => {
+        if (otp.length >= 5) {
+
+        }
+    };
+
     render() {
         const {navigation} = this.props;
         let data = navigation.state.params;
@@ -32,6 +38,7 @@ class SmsOTP extends Component {
                     <TextInput
                         secureTextEntry={true}
                         textAlign={'center'}
+                        keyboardType='numeric'
                         style={{
                             marginTop: 20,
                             backgroundColor: '#cbcbcb',
@@ -40,8 +47,10 @@ class SmsOTP extends Component {
                             marginBottom: 20,
                             fontSize: 20,
                         }}
-
+                        onChangeText={(otp) => this.cekOtp(otp, data)}
+                        maxLength={5}
                     />
+
                     <Text>Tidak menerima kode?s</Text>
                 </View>
             </View>
