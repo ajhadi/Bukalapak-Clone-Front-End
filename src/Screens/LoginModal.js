@@ -33,12 +33,14 @@ class LoginModal extends Component {
             )
         } else {
             this.props.dispatch(getAccount(this.props.account.token));
+            this.props.navigation.navigate('Home');
         }
     };
 
     navigateRegister() {
         this.props.navigation.navigate("SmsOTP")
     }
+
     render() {
         return (
             <View style={styles.container}>

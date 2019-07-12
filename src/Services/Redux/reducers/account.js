@@ -121,6 +121,12 @@ export default account = (state = initialState, action) => {
             }
 
         }
+        case 'LOGOUT': {
+            return {
+                data: ''
+            }
+        }
+
         default:
             return state;
     }

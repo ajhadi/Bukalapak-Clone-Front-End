@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, Image, FlatList, StatusBar, TouchableOpacity } from 'react-native';
-
+import {withNavigation} from 'react-navigation';
 import { connect } from 'react-redux';
 import { getProducts } from '../Services/Axios/products';
 
@@ -26,13 +26,16 @@ class ProductList extends Component {
             ribuan = number_string.substr(sisa).match(/\d{3}/g);
 
         if (ribuan) {
-            separator = sisa ? '.' : '';
+            let separator = sisa ? '.' : '';
             rupiah += separator + ribuan.join('.');
         }
         
         return rupiah;
     }
 
+    navigateDetail(data) {
+        this.props.navigation.navigate('ProductDetail', data)
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -41,8 +44,11 @@ class ProductList extends Component {
                     showsVerticalScrollIndicator={false}
                     data={this.getData()}
                     numColumns={2}
-                    renderItem={({item}) => 
-                        <TouchableOpacity style={styles.card}>
+                    renderItem={({item}) =>
+                        <TouchableOpacity
+                            style={styles.card}
+                            onPress={() => this.navigateDetail(item)}
+                        >
                             <View>
                                 <Image style={styles.img} source={{uri: item.image[0]}} />
                             </View>
@@ -116,4 +122,4 @@ const mapsStageToProps = (state) => {
     }
 };
 
-export default connect(mapsStageToProps)(ProductList);
+export default withNavigation(connect(mapsStageToProps)(ProductList));

@@ -41,4 +41,26 @@ export const updateAccount = (token, data) => {
         type: 'UPDATE_ACCOUNT',
         payload: connect(SERVER_API + 'users', 'PATCH', data, header)
     }
-}
+};
+
+export const logout = () => {
+    return {
+        type: 'LOGOUT',
+        payload: ''
+    }
+};
+
+export const getToken = (no_hp) => {
+    return {
+        type: 'GET_TOKEN',
+        payload: connect(SERVER_API + 'users', 'PATCH', data, header)
+    }
+};
+
+export const getVerifikasiToken = (no_hp, token) => {
+    return {
+        type: 'GET_VERIFIKASI_TOKEN',
+        payload: connect(SERVER_API + 'users', 'PATCH', data, header)
+    }
+};
+

@@ -33,7 +33,6 @@ class RegisterModal extends Component {
     }
 
     register() {
-        this.props.navigation.navigate('SmsOTP', this.state);
         let state = this.state;
         if (state.name == '' || state.noHp == '' || state.jk == '' || state.username == '' || state.password1 == '' || this.state.checked == false) {
             Alert.alert('Alert', 'lengkapi form kembali')
@@ -49,8 +48,7 @@ class RegisterModal extends Component {
                     password: this.state.password1,
                     referral: this.state.referral || ''
                 };
-
-                this.props.navigation.navigate('SmsOTP', data);
+                this.props.navigation.navigate('getOTP', data);
             }
         }
 
@@ -61,7 +59,9 @@ class RegisterModal extends Component {
             <View>
                 <StatusBar backgroundColor="#FFF" barStyle="dark-content"/>
                 <View style={styles.header}>
-                    <TouchableOpacity style={{width: 50}}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.goBack(null)}
+                        style={{width: 50}}>
                         <Image style={styles.headIcon} source={require('../Assets/Images/Icons/ic_back.png')}/>
                     </TouchableOpacity>
                     <Text style={styles.headTitle}>

@@ -32,7 +32,7 @@ import ProductDetail from './src/Screens/ProductDetail';
 import CartScreen from './src/Screens/Cart';
 import EditProfileScreen from './src/Screens/EditProfile';
 import CheckoutScreen from './src/Screens/Checkout';
-import SearchScreen from './src/Screens/Search';
+import getOTP from './src/Screens/getOTP';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
@@ -195,7 +195,6 @@ const StackNavigator = createStackNavigator({
             header: (null)
         }),
     },
-
     AccountNotLoginScreen: {
         screen: AccountNotLoginScreen,
         navigationOptions: ({navigation}) => ({
@@ -208,8 +207,14 @@ const StackNavigator = createStackNavigator({
             header: (null)
         }),
     },
+    getOTP: {
+        screen: getOTP,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
     Search: {
-        screen: SearchScreen,
+        screen: Search,
         navigationOptions: ({navigation}) => ({
             header: (null)
         }),
@@ -221,8 +226,9 @@ import {Provider} from 'react-redux';
 import configStore from './src/Services/Redux/store';
 import {PersistGate} from "redux-persist/integration/react";
 import LoginModal from "./src/Screens/LoginModal";
-import AccountNotLogin from "./src/Screens/AccountNotLogin";
+//import AccountNotLogin from "./src/Screens/AccountNotLogin";
 import SmsOTP from "./src/Screens/SmsOTP";
+import Search from "./src/Screens/Search";
 
 const {persistor, store} = configStore();
 

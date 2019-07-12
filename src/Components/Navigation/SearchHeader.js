@@ -2,15 +2,17 @@ import React, {Component} from 'react';
 import {
     View,
     TouchableOpacity,
-    Text,
     TextInput,
     Image,
     StyleSheet,
     StatusBar,
 } from "react-native";
-import _ from 'lodash';
 
-export default class SimpleHeader extends Component {
+import _ from 'lodash';
+import {getProducts} from "../../Services/Axios/products";
+import {connect} from "react-redux";
+
+class SimpleHeader extends Component {
     constructor(props) {
         super(props);
         this.limitSearch = _.debounce(this.searchData, 800);
@@ -21,8 +23,8 @@ export default class SimpleHeader extends Component {
     }
 
     searchData = (search) =>{
-        console.log(search)
-    }
+        this.props.dispatch(getProducts(search));
+    };
 
     render() {
         return (
@@ -84,3 +86,11 @@ const styles = StyleSheet.create({
 
     }
 });
+
+const mapsStageToProps = (state) => {
+    return {
+        product: state.product,
+    }
+};
+
+export default connect(mapsStageToProps)(SimpleHeader);

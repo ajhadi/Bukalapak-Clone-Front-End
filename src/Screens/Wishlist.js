@@ -14,6 +14,8 @@ import {
 import WishlistProducts from '../Components/Product/WishlistProducts';
 import FilterModal from "../Components/Filter";
 import data from '../Assets/DummyData/Products';
+import {withNavigation} from "react-navigation";
+import {connect} from "react-redux";
 class WishlistScreen extends Component {
     
     constructor(props){
@@ -61,7 +63,15 @@ class WishlistScreen extends Component {
     };
 };
 
-export default WishlistScreen;
+
+const mapsStageToProps = (state) => {
+    return {
+        products: state.products,
+        wishlist: state.wishlist
+    }
+};
+
+export default withNavigation(connect(mapsStageToProps)(WishlistScreen));
 
 const styles = StyleSheet.create({
     search:{

@@ -13,7 +13,7 @@ import {
 
 import LinearGradient from 'react-native-linear-gradient';
 import {connect} from "react-redux";
-import {getAccount} from '../Services/Axios/account';
+import {getAccount, logout} from '../Services/Axios/account';
 
 class Account extends Component {
 
@@ -45,6 +45,10 @@ class Account extends Component {
             sub.remove()
         })
     }
+
+    logoutApi() {
+        this.props.dispatch(logout());
+    }
     render() {
         
         return (
@@ -65,7 +69,9 @@ class Account extends Component {
                                     <Image source={require('../Assets/Images/Icons/ico_comment_minor.png')}
                                            style={styles.barIcon}/>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.iconHead}>
+                                <TouchableOpacity
+                                    onPress={() => this.logoutApi()}
+                                    style={styles.iconHead}>
                                     <Image source={require('../Assets/Images/Icons/ico_setting.png')}
                                            style={styles.barIcon}/>
                                 </TouchableOpacity>
