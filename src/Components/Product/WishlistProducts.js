@@ -48,7 +48,7 @@ class WishlistProduct extends Component {
                             <View style={{ borderTopWidth:1, borderTopColor:'#888',padding:5,height:this.state.width*0.2,width:'100%'}}>
                                 <Text style={{color:'#888', fontSize:12}}>{this.state.data.seller}</Text>
                                 <Text style={{color:'#888', fontSize:10, marginBottom:4}}>1000 rating</Text>
-                                <TouchableOpacity onPress={()=> alert('Beli')}  style={{padding:5,backgroundColor: 'red', alignSelf:'center', alignItems:'center', width:'100%'}}>
+                                <TouchableOpacity onPress={()=> alert('Beli')}  style={{padding:5,backgroundColor: '#D71149', alignSelf:'center', alignItems:'center', width:'100%'}}>
                                     <Text style={{color:'#FFF'}}>Beli</Text>
                                 </TouchableOpacity>
                             </View>

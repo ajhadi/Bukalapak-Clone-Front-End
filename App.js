@@ -31,6 +31,7 @@ import WishlistScreen from './src/Screens/Wishlist';
 import ProductDetail from './src/Screens/ProductDetail';
 import CartScreen from './src/Screens/Cart';
 import EditProfileScreen from './src/Screens/EditProfile';
+import CheckoutScreen from './src/Screens/Checkout';
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
@@ -63,9 +64,9 @@ const TabNavigator = createBottomTabNavigator(
                 tabBarIcon: ({focused}) => (
                     focused ?
                         <Image style={styles.icon}
-                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')}/> :
+                            source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')}/> :
                         <Image style={styles.icon}
-                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav_red.png')}/>
+                               source={require('./src/Assets/Images/Icons/Nav/ic_discover_nav.png')}/>
                 ),
                 tabBarOptions: {
                     activeTintColor: '#D71149',
@@ -181,12 +182,20 @@ const StackNavigator = createStackNavigator({
             header: (null)
         }),
     },
+    Checkout: {
+        screen: CheckoutScreen,
+        navigationOptions: ({navigation}) => ({
+            header: (null)
+        }),
+    },
 });
 
 const AppContainer = createAppContainer(StackNavigator);
 import {Provider} from 'react-redux';
 import configStore from './src/Services/Redux/store';
 import {PersistGate} from "redux-persist/integration/react";
+import LoginModal from "./src/Screens/LoginModal";
+import AccountNotLogin from "./src/Screens/AccountNotLogin";
 
 const {persistor, store} = configStore();
 

@@ -77,7 +77,7 @@ export default class TransactionTabs extends Component {
                     </View>
                     <View style={{flex:4,padding:2}}>
                         <Text style={{fontSize:15}}>SSD NVMe Hyper V-GeN 128GB</Text>
-                        <Text style={{fontWeight:'bold',marginBottom:2,marginTop:2,color:'red'}}>Rp390.975</Text>
+                        <Text style={{fontWeight:'bold',marginBottom:2,marginTop:2,color:'#D71149'}}>Rp390.975</Text>
                         <View style={{flexDirection:'row'}}>
                             <Image style={{width:20,height:20,marginRight:10}} source={require('../../Assets/Images/Icons/ico_scan_barcode.png')} />
                             <Text style={{fontSize:11}}>Dikembalikan</Text>
@@ -127,7 +127,7 @@ export default class TransactionTabs extends Component {
             <Pagination
               dotsLength={this.tab.length}
               activeDotIndex={activeSlide}
-              dotColor={'red'}
+              dotColor={'#D71149'}
               dotStyle={{
                   width: width*0.35,
                   height: 2,
