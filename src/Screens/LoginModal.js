@@ -12,6 +12,7 @@ import {
     from 'react-native';
 import {connect} from 'react-redux';
 import {postLogin, getAccount} from "../Services/Axios/account";
+import RegisterModal from "./RegisterModal";
 
 class LoginModal extends Component {
     constructor(props) {
@@ -35,6 +36,9 @@ class LoginModal extends Component {
         }
     };
 
+    navigateRegister() {
+        this.props.navigation.navigate("SmsOTP")
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -56,6 +60,7 @@ class LoginModal extends Component {
                         <TextInput
                             onChangeText={(password) => this.setState({password})}
                             style={styles.input}
+                            secureTextEntry={true}
                         />
                         <TouchableOpacity
                             onPress={() => this.postLogin(this.state.username, this.state.password)}
@@ -88,7 +93,8 @@ class LoginModal extends Component {
                         <View style={{marginTop: 12}}>
                             <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                                 <Text style={styles.textFoot}>Belum punya akun?</Text>
-                                <TouchableOpacity>
+                                <TouchableOpacity
+                                    onPress={() => this.props.navigation.navigate("RegisterModal")}>
                                     <Text style={[styles.textFoot, {color: '#D71149', fontWeight: '500'}]}> Daftar
                                         Sekarang</Text>
                                 </TouchableOpacity>
