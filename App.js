@@ -33,6 +33,7 @@ import CartScreen from './src/Screens/Cart';
 import EditProfileScreen from './src/Screens/EditProfile';
 import CheckoutScreen from './src/Screens/Checkout';
 import getOTP from './src/Screens/getOTP';
+import ForgetPassword from './src/Screens/ForgetPassword'
 
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
@@ -217,6 +218,12 @@ const StackNavigator = createStackNavigator({
         screen: Search,
         navigationOptions: ({navigation}) => ({
             header: (null)
+        }),
+    },
+    ForgetPassword: {
+        screen: ForgetPassword,
+        navigationOptions: ({navigation}) => ({
+            header: null
         }),
     },
 });

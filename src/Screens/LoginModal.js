@@ -103,7 +103,8 @@ class LoginModal extends Component {
                                         Sekarang</Text>
                                 </TouchableOpacity>
                             </View>
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => this.props.navigation.navigate("ForgetPassword")}>
                                 <Text style={[styles.textFoot, {color: '#D71149', marginTop: 8}]}>Lupa Password?</Text>
                             </TouchableOpacity>
                         </View>
