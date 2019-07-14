@@ -1,6 +1,6 @@
 <h1 align="center">Bukalapak Clone</h1>
-
-![](https://shopily-id.s3.amazonaws.com/uploads/stores/1479/1479_logo_e82fa5a7.png)
+<p align="center">
+<img src="https://3.bp.blogspot.com/-taeyfo7DfQ8/WrSu1pppwfI/AAAAAAAAKeo/TMmzb6lv7mIQ26KGpVFoeOj5pGcrRQzFwCLcBGAs/w1200-h630-p-k-no-nu/Bukalapak.jpg" width="400" height="190"></p>
 
 ## Table of Contents
 
