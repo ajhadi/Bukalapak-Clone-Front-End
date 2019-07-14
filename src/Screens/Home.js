@@ -26,11 +26,11 @@ export default class Home extends Component {
         return(
             <View>
                 <TopBar navigation={this.props.navigation}/>
-                <ScrollView style={styles.container}>
+                <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                     <MainMenu navigation={this.props.navigation}/>
                     <LoopCarousel/>
                     <FavoriteMenu/>
-                    <CategoryMenu/>
+                    <CategoryMenu navigation={this.props.navigation}/>
                 </ScrollView>
             </View>
         )

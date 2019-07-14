@@ -27,10 +27,10 @@ export default class LoopCarousel extends Component {
     render(){
         return(
             <View style={styles.container}>
-                <View style={{flex:1,flexDirection:'row'}}>
+                <View style={{flex:1,flexDirection:'row',justifyContent:'space-between'}}>
                     <Text style={{margin:15,fontSize:16,fontWeight:'bold'}}>Spesial Untukmu</Text> 
                     <TouchableOpacity>
-                        <Text style={{fontSize:13,left:110,margin:15,color:'#D71149'}}>Lihat semua</Text>
+                        <Text style={{fontSize:13,margin:15,color:'#D71149'}}>Lihat semua</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{flex:3}}>
