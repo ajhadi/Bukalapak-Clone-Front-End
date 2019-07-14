@@ -32,7 +32,7 @@ class TopBar extends Component {
                     <TouchableOpacity style={styles.iconFill}>
                         <Image source={require('../../Assets/Images/Icons/ico_scan_barcode.png')} style={styles.barIcon}/>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.iconFill}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Notification')} style={styles.iconFill}>
                         <Image source={require('../../Assets/Images/Icons/ico_notification_minor.png')} style={styles.barIcon}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.iconFill}>
