@@ -146,7 +146,9 @@ class Account extends Component {
                                 <Text style={{fontSize: 16, color: '#000', fontWeight: '500'}}>Ayo, Jualan di
                                     Bukalapak!</Text>
                             </View>
-                            <TouchableOpacity style={{
+                            <TouchableOpacity
+                                onPress={()=>this.props.navigation.navigate('SellProduct')}
+                                style={{
                                 height: 40,
                                 backgroundColor: '#EE4B60',
                                 borderRadius: 4,

@@ -36,7 +36,7 @@ import getOTP from './src/Screens/getOTP';
 import ForgetPassword from './src/Screens/ForgetPassword';
 import NotificationScreen from './src/Screens/Notification';
 import CategoryScreen from "./src/Screens/Category";
-
+import SellProduct from './src/Screens/SellProduct';
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
 
@@ -227,8 +227,12 @@ const StackNavigator = createStackNavigator({
         navigationOptions: ({navigation}) => ({
             header: null
         }),
-    },
-    Notification: {
+    },SellProduct: {
+        screen: SellProduct,
+        navigationOptions: ({navigation}) => ({
+            header: null
+        }),
+    },Notification: {
         screen: NotificationScreen,
         navigationOptions: ({navigation}) => ({
             header: null
