@@ -7,7 +7,7 @@ import {
     Image,
     StatusBar,
     ScrollView,
-    Dimensions,
+    Dimensions, BackHandlerStatic as BackHandler,
 }
     from 'react-native';
 
@@ -17,36 +17,29 @@ import {getAccount, logout} from '../Services/Axios/account';
 
 class Account extends Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            isLogin: this.props.account.isLogin,
-        };
-      }
-    
       getAccountApi() {
         this.props.dispatch(getAccount(this.props.account.token))
       }
 
     componentDidMount() {
         this.getAccountApi();
-        this.setState({isLogin: this.props.account.isLogin});
-        this.state.isLogin == false ? this.props.navigation.navigate('AccountNotLoginScreen'):null;
+        this.props.account.isLogin == true ?null:this.props.navigation.navigate('AccountNotLoginScreen');
 
         this.subs = [
             this.props.navigation.addListener('willFocus', () => {
-                this.state.isLogin == false ? this.props.navigation.navigate('AccountNotLoginScreen'):null;
+                this.props.account.isLogin == true ?null:this.props.navigation.navigate('AccountNotLoginScreen');
             })
         ]
     }
     componentWillUnmount() {
-        this.setState({isLogin: this.props.account.isLogin});
         this.subs.forEach(sub => {
             sub.remove()
         })
     }
 
+
     logoutApi() {
+          this.props.navigation.navigate('Home');
         this.props.dispatch(logout());
     }
     render() {
@@ -170,6 +163,7 @@ class Account extends Component {
             </View>
         );
     }
+
 }
 
 const height = Dimensions.get('window').height;

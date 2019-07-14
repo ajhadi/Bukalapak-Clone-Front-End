@@ -23,8 +23,8 @@ class LoginModal extends Component {
         }
     }
 
-    postLogin(username, password) {
-        this.props.dispatch(postLogin(username, password));
+    async postLogin(username, password) {
+        await this.props.dispatch(postLogin(username, password));
         if (this.props.account.error) {
             Alert.alert("", 'Username atau password yang anda masukan salah. silahkan coba lagi', [
                     {text: 'COBA LAGI', style: 'destructive'},
