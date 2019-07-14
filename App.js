@@ -26,7 +26,8 @@ import AccountScreen from './src/Screens/Account';                       //If Lo
 import AccountNotLoginScreen from './src/Screens/AccountNotLogin';    //If not login
 // import LoginModal from './src/Screens/LoginModal';                    //Not login and select Login
 import RegisterModal from './src/Screens/RegisterModal';              //Not login and select register
-// import ProductListScreen from './src/Screens/ProductList';            //Display when search product 
+// import ProductListScreen from './src/Screens/ProductList';            //Display when search product
+import SellProduct from './src/Screens/SellProduct';
 import WishlistScreen from './src/Screens/Wishlist';
 import ProductDetail from './src/Screens/ProductDetail';
 import CartScreen from './src/Screens/Cart';
@@ -222,6 +223,12 @@ const StackNavigator = createStackNavigator({
     },
     ForgetPassword: {
         screen: ForgetPassword,
+        navigationOptions: ({navigation}) => ({
+            header: null
+        }),
+    },
+    SellProduct: {
+        screen: SellProduct,
         navigationOptions: ({navigation}) => ({
             header: null
         }),

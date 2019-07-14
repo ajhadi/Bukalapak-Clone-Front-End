@@ -9,6 +9,18 @@ export const getProducts = (search = '') => {
     };
 };
 
+export const addProducts = (data, token) => {
+    let header = {
+        'Content-Type': 'application/json',
+        'x-auth-token': token
+    };
+
+    return {
+        type: 'ADD_PRODUCTS',
+        payload: connect(SERVER_API + 'product', 'POST',data,header)
+    };
+};
+
 export const getProductById = (id = '') => {
     let link = `product/${search}`;
     return {
