@@ -17,7 +17,7 @@ export const addProducts = (data, token) => {
 
     return {
         type: 'ADD_PRODUCTS',
-        payload: connect(SERVER_API + 'product', 'POST',data,header)
+        payload: connect(SERVER_API + 'product', 'POST', data, header)
     };
 };
 

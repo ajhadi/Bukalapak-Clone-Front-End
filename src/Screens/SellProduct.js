@@ -9,7 +9,7 @@ import {
     ScrollView,
     CheckBox,
     StatusBar,
-    Image
+    Image, Alert
 }
     from 'react-native';
 import ImagePicker from 'react-native-image-picker';
@@ -28,13 +28,13 @@ class SellProduct extends Component {
         super(props);
         this.state = {
             avatarSource: null,
-            name:'1',
-            categoriesId:'5d26055c398afb0610cb5d4c',
-            price:'',
-            weight:'',
-            image:'',
-            stock:'',
-            description:''
+            name: '1',
+            categoriesId: '5d26055c398afb0610cb5d4c',
+            price: '',
+            weight: '',
+            image: '',
+            stock: '',
+            description: ''
         }
     }
 
@@ -59,7 +59,7 @@ class SellProduct extends Component {
         });
     };
 
-    sellProductApi = async () => {
+    sellProductApi = () => {
         let data = {
             name: this.state.name,
             categoriesId: this.state.categoriesId,
@@ -68,9 +68,19 @@ class SellProduct extends Component {
             image: this.state.image,
             description: this.state.description,
         };
-      console.log(data);
-        this.props.dispatch(addProducts(data, this.props.account.token));
+        let respon = addProducts(data, this.props.account.token);
+
+        respon.payload.then(
+            function (data) {
+                Alert.alert("Add produk berhasill")
+            }
+        )
+            .catch(function (error) {
+                Alert.alert("Add data produk gagal")
+            });
+        this.props.navigation.goBack(null)
     };
+
     render() {
         return (
             <View>
@@ -91,50 +101,51 @@ class SellProduct extends Component {
                         <View style={{flex: 1}}>
                             <Text>Nama Barang</Text>
                             <TextInput
-                                onChangeText={(name)=>this.setState({name})}
+                                onChangeText={(name) => this.setState({name})}
                                 style={styles.input} placeholder={'Masukkan nama barang'}/>
                         </View>
                         <View style={styles.contain}>
                             <Text>Kategori</Text>
                             <TextInput
+                                onChangeText={(categoriesId) => this.setState({categoriesId})}
                                 style={styles.input} placeholder={'Pilih kategori'}/>
                         </View>
                         <View style={[styles.contain, {flexDirection: 'row'}]}>
-                            <View style={{flex: 2, height:40}}>
+                            <View style={{flex: 2, height: 40}}>
                                 <Text>Harga</Text>
                                 <View style={[styles.form, {width: width * 0.53}]}>
                                     <Text style={styles.text}>Rp</Text>
                                     <TextInput
-                                        onChangeText={(price)=>this.setState({price})}
+                                        onChangeText={(price) => this.setState({price})}
                                         style={{width: 130, marginHorizontal: 5}} placeholder={"0"}/>
                                 </View>
                             </View>
-                            <View style={{flex: 1,height:40}}>
+                            <View style={{flex: 1, height: 40}}>
                                 <Text>Stok</Text>
                                 <TextInput
-                                    onChangeText={(price)=>this.setState({price})}
+                                    onChangeText={(price) => this.setState({price})}
                                     style={styles.input} placeholder={'0'}/>
                             </View>
                         </View>
                         <View style={styles.contain}>
                             <Text>Berat</Text>
                             <View style={{flexDirection: 'row'}}>
-                                <View style={[styles.form, {flex:1, height:40}]}>
+                                <View style={[styles.form, {flex: 1, height: 40}]}>
                                     <TextInput
-                                        onChangeText={(weight)=>this.setState({weight})}
-                                        style={{flex:1,alignItems:'center', marginHorizontal: 5}} placeholder={'0'}/>
+                                        onChangeText={(weight) => this.setState({weight})}
+                                        style={{flex: 1, alignItems: 'center', marginHorizontal: 5}} placeholder={'0'}/>
                                     <Text style={styles.text}>gram</Text>
                                 </View>
-                                <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <CheckBox/>
-                                <Text>Baru</Text>
+                                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                                    <CheckBox/>
+                                    <Text>Baru</Text>
                                 </View>
                             </View>
                         </View>
                         <View style={styles.contain}>
                             <Text>Deskripsi Barang</Text>
                             <TextInput
-                                onChangeText={(description)=>this.setState({description})}
+                                onChangeText={(description) => this.setState({description})}
                                 style={styles.input} placeholder={'Isi deskripsi barangmu'}/>
                         </View>
                         <View style={styles.contain}>
@@ -142,15 +153,16 @@ class SellProduct extends Component {
                             <View style={{flex: 1, flexDirection: 'row'}}>
                                 <Image style={{width: 40, height: 40}} source={this.state.avatarSource}/>
                             </View>
-                            <TouchableOpacity onPress={this.getImage} style={[styles.btn, {backgroundColor: '#ddd',padding:15}]}>
+                            <TouchableOpacity onPress={this.getImage}
+                                              style={[styles.btn, {backgroundColor: '#ddd', padding: 15}]}>
                                 <Text style={{fontWeight: 'bold'}}>Tambah Foto Barang</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={[styles.contain, {marginTop: 10}]}>
                             <TouchableOpacity
-                                style={[styles.btn, {backgroundColor: '#D71149',padding:15}]}
-                                onPress={()=>this.sellProductApi()}>
-                                <Text style={{color: '#fff', fontWeight:'bold'}}>Jual Barang</Text>
+                                style={[styles.btn, {backgroundColor: '#D71149', padding: 15}]}
+                                onPress={() => this.sellProductApi()}>
+                                <Text style={{color: '#fff', fontWeight: 'bold'}}>Jual Barang</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={[styles.contain, {alignItems: 'center', marginTop: -30}]}>
@@ -164,6 +176,7 @@ class SellProduct extends Component {
         )
     }
 }
+
 const styles = StyleSheet.create({
     fromData: {
         height: 200
@@ -193,7 +206,7 @@ const styles = StyleSheet.create({
         marginTop: 15
     },
     input: {
-        height:40,
+        height: 40,
         borderWidth: 1,
         padding: 10,
         borderColor: '#ddd',
