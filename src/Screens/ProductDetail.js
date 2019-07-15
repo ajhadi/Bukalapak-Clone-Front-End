@@ -271,7 +271,7 @@ class ProductDetail extends Component {
                             styles.backgroundImage,
                             {opacity: imageOpacity, transform: [{translateY: imageTranslate}]},
                         ]}
-                        source={require('../Assets/DummyData/Image/air-jordan-7-retro-sp-shoe.jpg')}
+                        source={{uri : data.image[0]}}
                     />
                     <View style={styles.bar}>
                         <TouchableOpacity onPress={() => this.props.navigation.goBack()}>

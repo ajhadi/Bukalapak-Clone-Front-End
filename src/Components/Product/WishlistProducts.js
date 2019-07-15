@@ -43,7 +43,7 @@ class WishlistProduct extends Component {
 
         return (
             <View key={this.state.data.id} style={{width:this.state.width/2}}>
-                <TouchableOpacity onPress={() => { this.props.navigation.navigate('ProductDetail', this.props.data)}}>
+                <TouchableOpacity onPress={() => { this.props.navigation.navigate('ProductDetail', data)}}>
                     <View style={{
                         width:'100%',
                         height:this.state.width*1.1,
