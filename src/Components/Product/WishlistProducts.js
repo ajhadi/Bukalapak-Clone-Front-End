@@ -51,7 +51,7 @@ class WishlistProduct extends Component {
                         borderColor:'#F1F1F1',
                         borderTopColor:'#F9F9F9'}}>
                             <ImageBackground style={{alignItems:'flex-end',width: (this.state.width/2)-2,height: (this.state.width/2)-2}} 
-                            source={require('../../Assets/DummyData/Image/air-jordan-7-retro-sp-shoe.jpg')}>
+                            source={{uri : data.image[0]}}>
                                 <TouchableOpacity onPress={()=> this.deleteWishlist(this.props.data._id)} style={{zIndex:1,margin:10,alignItems:'center',justifyContent:'center',backgroundColor:'#FFF', width:28,height:28,borderRadius:14,padding:3}}>
                                     <Image source={require('../../Assets/Images/Icons/ic_favfilled.png')} style={{width:18,height:18}}/>
                                 </TouchableOpacity>
