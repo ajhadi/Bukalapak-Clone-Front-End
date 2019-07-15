@@ -33,9 +33,10 @@ import CartScreen from './src/Screens/Cart';
 import EditProfileScreen from './src/Screens/EditProfile';
 import CheckoutScreen from './src/Screens/Checkout';
 import getOTP from './src/Screens/getOTP';
-import ForgetPassword from './src/Screens/ForgetPassword'
+import ForgetPassword from './src/Screens/ForgetPassword';
+import NotificationScreen from './src/Screens/Notification';
+import CategoryScreen from "./src/Screens/Category";
 import SellProduct from './src/Screens/SellProduct';
-import Notification from './src/Screens/Notification';
 //Import Components
 import TopBar from './src/Components/Navigation/TopBar';
 
@@ -232,7 +233,13 @@ const StackNavigator = createStackNavigator({
             header: null
         }),
     },Notification: {
-        screen: Notification,
+        screen: NotificationScreen,
+        navigationOptions: ({navigation}) => ({
+            header: null
+        }),
+    },
+    Category: {
+        screen: CategoryScreen,
         navigationOptions: ({navigation}) => ({
             header: null
         }),
@@ -255,7 +262,7 @@ export default class App extends Component {
         return (
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
-                    <AppContainer/>
+                    <AppContainer />
                 </PersistGate>
             </Provider>
         )
