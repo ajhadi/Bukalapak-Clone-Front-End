@@ -9,8 +9,11 @@ import {
     Dimensions,
     View,
 } from 'react-native';
+import {addWishList, deleteWishList, getWishlist} from "../Services/Axios/wishlist";
+import {withNavigation} from "react-navigation";
+import {connect} from "react-redux";
 
-export default class ScrollableHeader extends Component {
+class ProductDetail extends Component {
 
     constructor(props) {
         super(props);
@@ -28,6 +31,36 @@ export default class ScrollableHeader extends Component {
             rate.push(1)
         }
         return rate;
+    }
+
+    deleteWishlistRedux(id){
+        this.props.dispatch(deleteWishList(id,this.props.account.token));
+    }
+
+    addWishlistRedux(id) {
+        addWishList(id, this.props.account.token);
+        //await this.props.dispatch(getWishlist(this.props.account.token));
+    }
+    wishlist(id){
+        let data = this.props.wishlist.data;
+        let found = data.find(function (data) {
+            return data.product._id=id;
+        });
+
+        console.log(found);
+        if (found){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    cekWishlistRedux(id){
+        if (this.wishlist(id)){
+            this.deleteWishlistRedux(id)
+        } else {
+            this.addWishlistRedux(id)
+        }
     }
 
     render() {
@@ -156,11 +189,7 @@ export default class ScrollableHeader extends Component {
                                 </View>
                             </View>
                             <View style={{padding: 10, borderTopWidth: 2, borderTopColor: '#F5F5F5'}}>
-                                <Text>
-                                    - Description
-                                    - barang nya dijual bebas di pasar gelap
-                                    - melihat berarti membeli
-                                    - awas barang mudah terbakar
+                                <Text>{data.description}
                                 </Text>
                                 <TouchableOpacity
                                     style={{marginTop: 10, flex: 1, alignItems: 'center', paddingTop: 10}}>
@@ -254,9 +283,13 @@ export default class ScrollableHeader extends Component {
                             <Image source={require('../Assets/Images/Icons/ico_cart.png')}
                                    style={{opacity: 0.7, width: 20, height: 20, marginLeft: 15, marginRight: 20}}/>
                         </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Image source={require('../Assets/Images/Icons/ico_heart.png')}
-                                   style={{opacity: 0.7, width: 20, height: 20, marginRight: 15}}/>
+                        <TouchableOpacity
+                        onPress={() => this.cekWishlistRedux(data._id)}
+                        >
+                            {this.wishlist(data._id)?
+                                <Image source={require('../Assets/Images/Icons/ico_heart.png')} style={{opacity: 0.7, width: 20, height: 20, marginRight: 15}}/>:
+                                <Image source={require('../Assets/Images/Icons/ico_heart_red.png')} style={{opacity: 0.7, width: 20, height: 20, marginRight: 15}}/>}
+
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <Image source={require('../Assets/Images/Icons/ico_more_vertical.png')}
@@ -268,6 +301,16 @@ export default class ScrollableHeader extends Component {
         );
     }
 }
+
+const mapsStageToProps = (state) => {
+    return {
+        account: state.account,
+        wishlist:state.wishlist
+    }
+};
+
+export default connect(mapsStageToProps)(ProductDetail);
+
 const MAX_WIDTH = Dimensions.get('window').width;
 const HEADER_MAX_HEIGHT = Dimensions.get('window').width;
 const HEADER_MIN_HEIGHT = 60;

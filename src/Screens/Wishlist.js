@@ -16,6 +16,7 @@ import FilterModal from "../Components/Filter";
 import data from '../Assets/DummyData/Products';
 import {withNavigation} from "react-navigation";
 import {connect} from "react-redux";
+import {getWishlist} from "../Services/Axios/wishlist";
 class WishlistScreen extends Component {
     
     constructor(props){
@@ -31,6 +32,10 @@ class WishlistScreen extends Component {
         this.setState({ _ModalVisible: bool});
     }
     _keyExtractor = (item, index) => item.id;
+
+    componentDidMount(): void {
+        this.props.dispatch(getWishlist(this.props.account.token));
+    }
 
     render() {
         return (
@@ -48,7 +53,7 @@ class WishlistScreen extends Component {
                 <View style={styles.wishlist}>
                     <FlatList
                         style={{}}
-                        data={this.state.products}
+                        data={this.props.wishlist.data}
                         keyExtractor={this._keyExtractor}
                         numColumns='2'
                         renderItem={({item}) => <WishlistProducts navigation={this.props.navigation} data={item}/>}
@@ -67,6 +72,7 @@ class WishlistScreen extends Component {
 const mapsStageToProps = (state) => {
     return {
         products: state.products,
+        account: state.account,
         wishlist: state.wishlist
     }
 };

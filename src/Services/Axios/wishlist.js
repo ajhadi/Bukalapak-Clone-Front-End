@@ -15,6 +15,10 @@ export const getWishlist = (token) => {
 
 
 export const addWishList = (id, token) => {
+    let data = {
+        productId:id
+    };
+
     let header = {
         'Content-Type': 'application/json',
         'x-auth-token': token
@@ -22,7 +26,20 @@ export const addWishList = (id, token) => {
 
 
     return {
-        type: 'GET_VERIFIKASI_TOKEN',
-        payload: connect(SERVER_API + 'users', 'PATCH', data, header)
+        type: 'ADD_WISHLIST',
+        payload: connect(SERVER_API + 'wishlist', 'POST', data, header)
+    }
+};
+
+
+export const deleteWishList = (id, token) => {
+    let header = {
+        'Content-Type': 'application/json',
+        'x-auth-token': token
+    };
+
+    return {
+        type: 'DELETE_WISHLIST',
+        payload: connect(SERVER_API + 'wishlist/'+id, 'DELETE','', header)
     }
 };
