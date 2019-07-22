@@ -16,5 +16,14 @@ const connect = async (url, method, data, headers,) => {
         throw e;
     }
 };
-
 export default connect;
+exports.sendApi = async (url, method, data, headers,) => {
+    const options = {
+        method: method,
+        headers: headers || {'Content-Type': 'application/json'},
+        data: data,
+        url: url,
+    };
+
+    return axios(options)
+};

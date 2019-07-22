@@ -11,7 +11,7 @@ import {
     CheckBox, Alert,
 }
     from 'react-native';
-import {postLogin, postRegister} from "../Services/Axios/account";
+import {cekRegistrasi, getToken, getVerifikasiToken, postLogin, postRegister} from "../Services/Axios/account";
 
 import {connect} from "react-redux";
 import SmsOTP from "./SmsOTP";
@@ -32,7 +32,7 @@ class RegisterModal extends Component {
         }
     }
 
-    register() {
+    async register() {
         let state = this.state;
         if (state.name == '' || state.noHp == '' || state.jk == '' || state.username == '' || state.password1 == '' || this.state.checked == false) {
             Alert.alert('Alert', 'lengkapi form kembali')
@@ -40,6 +40,7 @@ class RegisterModal extends Component {
             if (state.password1 != state.password2) {
                 Alert.alert('Alert', 'password tidak sama')
             } else {
+
                 let data = {
                     name: this.state.name,
                     email: this.state.noHp,
@@ -48,7 +49,14 @@ class RegisterModal extends Component {
                     password: this.state.password1,
                     referral: this.state.referral || ''
                 };
-                this.props.navigation.navigate('getOTP', data);
+                await this.props.dispatch(cekRegistrasi(data));
+                if (this.props.account.error) {
+                    Alert.alert("Registrasi gagal")
+                } else {
+                    this.props.navigation.navigate('getOTP', data);
+                    this.props.dispatch(getToken(this.state.noHp));
+                }
+
             }
         }
 

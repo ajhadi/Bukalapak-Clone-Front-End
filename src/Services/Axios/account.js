@@ -18,6 +18,12 @@ export const postRegister = (data) => {
         payload: connect(SERVER_API + 'register', 'POST', data)
     };
 };
+export const cekRegistrasi = (data) => {
+    return {
+        type: 'POST_CEK_REGISTER',
+        payload: connect(SERVER_API + 'cek_registrasi', 'POST', data)
+    };
+};
 
 export const getAccount = (token) => {
     let header = {
@@ -51,16 +57,20 @@ export const logout = () => {
 };
 
 export const getToken = (no_hp) => {
+    let data = {
+        phoneNumber: no_hp
+    };
     return {
         type: 'GET_TOKEN',
-        payload: connect(SERVER_API + 'users', 'PATCH', data, header)
+        payload: connect(SERVER_API + 'getotp', 'post', data)
     }
 };
 
 export const getVerifikasiToken = (no_hp, token) => {
-    return {
-        type: 'GET_VERIFIKASI_TOKEN',
-        payload: connect(SERVER_API + 'users', 'PATCH', data, header)
-    }
+    let data = {
+        phoneNumber: no_hp,
+        token: token
+    };
+    return connect(SERVER_API + 'cekotp', 'POST', data)
 };
 

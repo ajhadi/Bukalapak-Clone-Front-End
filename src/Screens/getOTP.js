@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Alert, Dimensions, Image, StatusBar, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {connect} from "react-redux";
 import SimpleHeader from "../Components/Navigation/SimpleHeaderLeft";
+import {withNavigation} from "react-navigation";
 
 class getOTP extends Component {
 
@@ -26,7 +27,9 @@ class getOTP extends Component {
                         adalah kode rahasia yang di gunakan untuk keamanan akun kamu</Text>
 
 
-                    <TouchableOpacity style={{
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('SmsOTP', data)}
+                        style={{
                         backgroundColor: '#EE4B60',
                         marginTop: 25,
                         padding: 12,
@@ -51,4 +54,4 @@ const mapsStageToProps = (state) => {
     }
 };
 
-export default connect(mapsStageToProps)(getOTP);
+export default withNavigation(connect(mapsStageToProps)(getOTP));

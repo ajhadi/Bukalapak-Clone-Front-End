@@ -121,6 +121,32 @@ export default account = (state = initialState, action) => {
             }
 
         }
+
+        case 'POST_CEK_REGISTER_PENDING': {
+            return {
+                ...state,
+                error: true,
+                isLoading: true
+            }
+
+        }
+        case 'POST_CEK_REGISTER_REJECTED': {
+            return {
+                ...state,
+                error: true,
+                isLoading: false
+            }
+
+        }
+        case 'POST_CEK_REGISTER_FULFILLED': {
+            return {
+                ...state,
+                error: false,
+                isLoading: false
+            }
+
+        }
+
         case 'LOGOUT': {
             return {
                 data: ''
