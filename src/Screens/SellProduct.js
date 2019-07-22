@@ -106,9 +106,12 @@ class SellProduct extends Component {
                         </View>
                         <View style={styles.contain}>
                             <Text>Kategori</Text>
-                            <TextInput
-                                onChangeText={(categoriesId) => this.setState({categoriesId})}
-                                style={styles.input} placeholder={'Pilih kategori'}/>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Category')}>
+                                <TextInput
+                                    editable={false}
+                                    onChangeText={(categoriesId) => this.setState({ categoriesId })}
+                                    style={styles.input} placeholder={'Pilih kategori'} />
+                            </TouchableOpacity>
                         </View>
                         <View style={[styles.contain, {flexDirection: 'row'}]}>
                             <View style={{flex: 2, height: 40}}>
