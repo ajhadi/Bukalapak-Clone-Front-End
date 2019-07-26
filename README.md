@@ -63,19 +63,19 @@ Bukalapak is a privately held technology company in Indonesia and one of the lar
         </a>
       </td>
       <td align="center">
-        <a href="https://github.com/dymzfp">
+        <a href="https://github.com/aahmadhadi">
           <img width="100" src="https://avatars1.githubusercontent.com/u/1139881?s=400&v=4" alt="Yoga Setiawan"><br/>
           <sub><b>Yoga Setiawan</b></sub>
         </a>
       </td>
       <td align="center">
-        <a href="https://github.com/kevinmartinda">
+        <a href="https://github.com/fdlnfjrrmdni">
           <img width="100" src="https://avatars1.githubusercontent.com/u/30279145?s=400&v=4" alt="Fadlan Fajar Ramdani"><br/>
           <sub><b>Fadlan Fajar Ramdani</b></sub>
         </a>
       </td>
       <td align="center">
-        <a href="https://github.com/mhdrare">
+        <a href="https://github.com/haferz17">
           <img width="100" src="https://avatars1.githubusercontent.com/u/51024270?s=460&v=4" alt="M Aftarroziq"><br/>
           <sub><b>M Aftarroziq</b></sub>
         </a>
