@@ -45,7 +45,7 @@ Bukalapak is a privately held technology company in Indonesia and one of the lar
 ## Release APK
 
 <a href="https://drive.google.com/file/d/163zsPcnHT-tH-NN_CVjKnkdpE-Su6xbU/view?usp=sharing">
-  <img src="https://thecorrespondent.in/wp-content/uploads/2019/02/GoogleDrive-big.png" width=100/>
+  <img src="https://image.flaticon.com/icons/svg/29/29544.svg" width=100/>
 </a>
   
 ## Related Project
