@@ -59,7 +59,7 @@ Bukalapak is a privately held technology company in Indonesia and one of the lar
       <td align="center">
         <a href="https://github.com/ajhadi">
           <img width="100" src="https://avatars1.githubusercontent.com/u/35247372?s=460&v=4" alt="Hadi"><br/>
-          <sub><b>Ahmad Hadi Jaelani</b></sub>
+          <sub><b>Hadi</b></sub>
         </a>
       </td>
       <td align="center">
